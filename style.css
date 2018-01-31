@@ -1,7 +1,10 @@
 body {
     font-size: 14px;
-    color: navy;
+    color: #2a2e31;
     background-color:#D5EAF9;
+    font-family: verdana, helvetica, sans-serif;
+    margin: 20px;
+    padding:0;
 }
 
 h1{
@@ -10,17 +13,11 @@ h1{
     padding: 40px;
 }
 
-body{
-    font-family: verdana, helvetica, sans-serif;
-    background-color:grey;
-    margin: 20px;
-    padding:0;
-}
 
 p{ 
     text-align: center;
     letter-spacing: justified;
-       margin: 5px;
+    margin: 5px;
     padding:2px;
 }
 
@@ -29,4 +26,5 @@ li {
     font-style: italic;
 }
 
-/*blue - #96CBF2, #D5EAF9*/
+/*blue - #96CBF2, #D5EAF9
+grey - #2a2e31*/
