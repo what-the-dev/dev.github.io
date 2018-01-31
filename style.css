@@ -1,3 +1,32 @@
 body {
-    background-color: #6BA7D6;
+    font-size: 14px;
+    color: navy;
+    background-color:#D5EAF9;
 }
+
+h1{
+    color: white;
+    margin: 20px;
+    padding: 40px;
+}
+
+body{
+    font-family: verdana, helvetica, sans-serif;
+    background-color:grey;
+    margin: 20px;
+    padding:0;
+}
+
+p{ 
+    text-align: center;
+    letter-spacing: justified;
+       margin: 5px;
+    padding:2px;
+}
+
+li {
+    color: #96CBF2;
+    font-style: italic;
+}
+
+/*blue - #96CBF2, #D5EAF9*/
