@@ -9,7 +9,6 @@ body {
     color: #2a2e31;
     background-color:#D5EAF9;
     font-family: verdana, helvetica, sans-serif;
-
     padding:0;
 }
 
@@ -38,6 +37,8 @@ nav ul li{
 }
 
 nav ul li a{
+    text-align:center;
+    padding:8px 0;
     display:block;
     width:100%;
     background: #8FC1DC;
@@ -62,8 +63,25 @@ li {
     font-style: italic;
 }
 
+/* LINKS */
 a{
-    color:red;
+    color:white;
+    text-decoration: none;   
+    text-align: center; 
+}
+
+/* selected link */
+a:active {
+    color: #2d3b45;
+    text-decoration: none;
+    text-align: center; 
+}
+
+/* mouse over link */
+a:hover {
+    color: #2d3b45;
+    text-decoration: none;
+    text-align: center; 
 }
 
 /*
