@@ -28,6 +28,9 @@ nav ul{
     margin:0;
     padding:0;
     overflow: hidden
+        /* UPDATE FONT SIZE and FAMILY*/
+    font-size: 15px;
+    font-family: "Times New Roman", Times, serif;
 }
 
 /*nav li styling 20% because there are 5 elements 100% / 5 = 20*/
