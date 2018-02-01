@@ -1,4 +1,6 @@
+/*https://www.noupe.com/design/building-an-interactive-navigation-bar-with-htmlcss-78732.html*/
 /**/
+
 body {
     width:100%;
     max-width:960px;
@@ -34,6 +36,7 @@ nav ul li{
 nav ul li a{
     display:block;
     width:100%;
+    background: #8FC1DC;
 }
 
 h1{
