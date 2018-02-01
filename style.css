@@ -8,7 +8,7 @@ body {
     font-size: 14px;
     color: #2a2e31;
     background-color:#D5EAF9;
-    font-family: verdana, helvetica, sans-serif;
+    font-family: helvetica, verdana, sans-serif;
     padding:0;
 }
 
@@ -27,10 +27,10 @@ nav ul{
     list-style: none;
     margin:0;
     padding:0;
-    overflow: hidden
-        /* UPDATE FONT SIZE and FAMILY*/
+    overflow: hidden;
     font-size: 15px;
-    font-family: "Times New Roman", Times, serif;
+    font-family: helvetica, verdana, sans-serif;
+    font-style: bold;
 }
 
 /*nav li styling 20% because there are 5 elements 100% / 5 = 20*/
@@ -71,13 +71,16 @@ a{
     color:white;
     text-decoration: none;   
     text-align: center; 
+    font-size: 15px;
+    font-family: helvetica, verdana, sans-serif;
+    font-style: bold;
 }
 
 /* selected link */
 a:active {
     color: #2d3b45;
     text-decoration: none;
-    text-align: center; 
+    text-align: center;
 }
 
 /* mouse over link */
