@@ -1,0 +1,1980 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<title>Devin de Araujo</title>
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body style="padding-top: 70px">
+<!-- PAGE NAVBAR -->
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color: #337ab7;">
+<div class="container">
+<!-- Brand and toggle get grouped for better mobile display -->
+<div class="navbar-header">
+<button aria-expanded="false" class="navbar-toggle collapsed" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="index.html" style="color: #fff;">Devin de Araujo</a>
+</div>
+<!-- Collect the nav links, forms, and other content for toggling -->
+<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+<ul class="nav navbar-nav">
+<li><a href="index.html#projects" style="color: #fff;">Projects<span class="sr-only">(current)</span></a></li>
+<li><a href="index.html#tech-work" style="color: #fff;">Technical Notes</a></li>
+<li class="dropdown">
+<a aria-expanded="false" aria-haspopup="true" class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" style="color: #fff;">About<span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li><a href="#">About</a></li>
+<li><a href="https://github.com/what-the-dev" target="_blank">GitHub</a></li>
+<li><a href="https://twitter.com/what_the_dev" target="_blank">Twitter</a></li>
+<li><a href="https://www.linkedin.com/in/devin-de-araujo-37088a1b/" target="_blank">Linkedin</a></li>
+</ul>
+</li>
+</ul>
+</div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+</nav>
+<div class="container" id="jupyter-content">
+<div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Grouping-Data-with-Pandas">Grouping Data with Pandas<a class="anchor-link" href="#Grouping-Data-with-Pandas">¶</a></h1><ul>
+<li>Using <code>groupby()</code> </li>
+<li>More info on grouby in the <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.groupby.html">Docs</a></li>
+<li>Datetime info can be found <a href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html">here</a></li>
+<li>Data can be found <a href="https://github.com/stevesimmons/PyData-PandasFromTheInside">here</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'scores.csv'</span><span class="p">)</span>
+
+<span class="c1"># view the first 10 rows</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[35]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Date</th>
+<th>Venue</th>
+<th>Round</th>
+<th>Team</th>
+<th>G</th>
+<th>B</th>
+<th>F</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Fitzroy</td>
+<td>6</td>
+<td>13</td>
+<td>49</td>
+<td>16</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Carlton</td>
+<td>2</td>
+<td>4</td>
+<td>16</td>
+<td>49</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Geelong</td>
+<td>3</td>
+<td>6</td>
+<td>24</td>
+<td>47</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Essendon</td>
+<td>7</td>
+<td>5</td>
+<td>47</td>
+<td>24</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1897-05-08</td>
+<td>Lake Oval</td>
+<td>R1</td>
+<td>South Melbourne</td>
+<td>3</td>
+<td>9</td>
+<td>27</td>
+<td>44</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>groupby()</strong> function essentialy groups data and allows you to apply function to that data.</p>
+<p>Below, lets group by the team and get the total count of games each team played.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Team'</span><span class="p">)[</span><span class="s1">'Team'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Team
+Adelaide             584
+Brisbane Bears       222
+Brisbane Lions       445
+Carlton             2431
+Collingwood         2469
+Essendon            2395
+Fitzroy             1928
+Footscray           1431
+Fremantle            483
+GW Sydney             94
+Geelong             2363
+Gold Coast           116
+Hawthorn            1912
+Kangaroos            209
+Melbourne           2336
+North Melbourne     1694
+Port Adelaide        446
+Richmond            2190
+South Melbourne     1570
+St Kilda            2312
+Sydney               793
+University           126
+West Coast           688
+Western Bulldogs     443
+Name: Team, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Grouping is useful for applying aggregate calculations on you data. e.g. Find the average number of goals scored by each team.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Team'</span><span class="p">])[</span><span class="s1">'G'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Team
+Adelaide            13.753425
+Brisbane Bears      12.846847
+Brisbane Lions      13.676404
+Carlton             12.203209
+Collingwood         12.349939
+Essendon            12.382046
+Fitzroy             10.945021
+Footscray           11.499651
+Fremantle           12.759834
+GW Sydney           10.904255
+Geelong             12.269996
+Gold Coast          11.198276
+Hawthorn            13.010983
+Kangaroos           14.425837
+Melbourne           11.557791
+North Melbourne     12.390791
+Port Adelaide       13.432735
+Richmond            12.449772
+South Melbourne     10.429936
+St Kilda            10.974048
+Sydney              14.060530
+University           6.674603
+West Coast          13.805233
+Western Bulldogs    14.255079
+Name: G, dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can groupby multiple levels.</p>
+<p>e.g. For each Venue, find the total number of games each Team played at that Venue.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Venue'</span><span class="p">,</span> <span class="s1">'Team'</span><span class="p">])[</span><span class="s1">'Team'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Venue            Team            
+Adelaide Oval    Adelaide             26
+                 Brisbane Lions        2
+                 Carlton               1
+                 Collingwood           2
+                 Essendon              2
+                 Fremantle             4
+                 GW Sydney             2
+                 Geelong               3
+                 Gold Coast            2
+                 Hawthorn              4
+                 Melbourne             4
+                 North Melbourne       2
+                 Port Adelaide        30
+                 Richmond              4
+                 St Kilda              5
+                 Sydney                4
+                 West Coast            3
+                 Western Bulldogs      2
+Albury           North Melbourne       1
+                 South Melbourne       1
+Arden St         Carlton              47
+                 Collingwood          44
+                 Essendon             48
+                 Fitzroy              47
+                 Footscray            50
+                 Geelong              46
+                 Hawthorn             47
+                 Melbourne            50
+                 North Melbourne     529
+                 Richmond             49
+                                    ... 
+Windy Hill       Richmond             57
+                 South Melbourne      51
+                 St Kilda             53
+                 Sydney                8
+                 West Coast            5
+Yallourn         Footscray             1
+                 St Kilda              1
+Yarraville Oval  Carlton               1
+                 Essendon              1
+                 Fitzroy               1
+                 Footscray             7
+                 Hawthorn              1
+                 Richmond              1
+                 South Melbourne       1
+                 St Kilda              1
+York Park        Adelaide              5
+                 Brisbane Lions        7
+                 Fremantle            10
+                 GW Sydney             1
+                 Geelong               1
+                 Gold Coast            3
+                 Hawthorn             49
+                 Kangaroos             2
+                 North Melbourne       4
+                 Port Adelaide         8
+                 Richmond              1
+                 St Kilda             10
+                 Sydney                1
+                 West Coast            7
+                 Western Bulldogs      5
+Name: Team, Length: 561, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Grouping-by-Date">Grouping by Date<a class="anchor-link" href="#Grouping-by-Date">¶</a></h3><ul>
+<li>You can group by <strong>datetime</strong> objects. </li>
+<li><p>There are multiple ways to do this, I will show you 2.</p>
+</li>
+<li><p><strong>Before</strong> you start, you need to convert the Date into a <strong>datetime</strong> object</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Converting-Dates-into-datetime-objects">Converting Dates into datetime objects<a class="anchor-link" href="#Converting-Dates-into-datetime-objects">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert the date variable into a datetime object</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[36]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Date</th>
+<th>Venue</th>
+<th>Round</th>
+<th>Team</th>
+<th>G</th>
+<th>B</th>
+<th>F</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Fitzroy</td>
+<td>6</td>
+<td>13</td>
+<td>49</td>
+<td>16</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Carlton</td>
+<td>2</td>
+<td>4</td>
+<td>16</td>
+<td>49</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Geelong</td>
+<td>3</td>
+<td>6</td>
+<td>24</td>
+<td>47</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Essendon</td>
+<td>7</td>
+<td>5</td>
+<td>47</td>
+<td>24</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1897-05-08</td>
+<td>Lake Oval</td>
+<td>R1</td>
+<td>South Melbourne</td>
+<td>3</td>
+<td>9</td>
+<td>27</td>
+<td>44</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check that this worked</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[39]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Timestamp('1897-05-08 00:00:00')</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Split-the-Date-into-Month,-Year,-Day">1. Split the Date into Month, Year, Day<a class="anchor-link" href="#1.-Split-the-Date-into-Month,-Year,-Day">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [49]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now that you have a datetime object, </span>
+<span class="c1"># you can extract Month, Day and Year easily</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">year</span>  <span class="c1"># 1987</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">month</span> <span class="c1"># 5</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">day</span>   <span class="c1"># 8</span>
+
+<span class="c1"># now create new columns for with this info</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'day'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[49]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Date</th>
+<th>Venue</th>
+<th>Round</th>
+<th>Team</th>
+<th>G</th>
+<th>B</th>
+<th>F</th>
+<th>A</th>
+<th>year</th>
+<th>month</th>
+<th>day</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Fitzroy</td>
+<td>6</td>
+<td>13</td>
+<td>49</td>
+<td>16</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Carlton</td>
+<td>2</td>
+<td>4</td>
+<td>16</td>
+<td>49</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Geelong</td>
+<td>3</td>
+<td>6</td>
+<td>24</td>
+<td>47</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Essendon</td>
+<td>7</td>
+<td>5</td>
+<td>47</td>
+<td>24</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1897-05-08</td>
+<td>Lake Oval</td>
+<td>R1</td>
+<td>South Melbourne</td>
+<td>3</td>
+<td>9</td>
+<td>27</td>
+<td>44</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, you can use the new columns to group the data</p>
+<p>e.g. FInd the number of Rounds played <strong>each month</strong> in <strong>2014</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'year == 2014'</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'month'</span><span class="p">)[</span><span class="s1">'Round'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[50]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>month
+3    36
+4    72
+5    64
+6    80
+7    56
+8    88
+9    18
+Name: Round, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Create-a-datetime-index">2. Create a datetime index<a class="anchor-link" href="#2.-Create-a-datetime-index">¶</a></h3><ul>
+<li>This mehtod is NOT ideal for THIS dataset because there are multiple games played on each day</li>
+<li>We will create some new data to work with</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="c1"># create a list of dates spanning 365 days</span>
+<span class="n">date_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Create a list of numeric values, spanning 365 values</span>
+<span class="n">score_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">365</span><span class="p">))</span>
+
+<span class="c1"># create empty dataframe</span>
+<span class="n">date_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># append data</span>
+<span class="n">date_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">date_list</span>
+<span class="n">date_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">]</span> <span class="o">=</span> <span class="n">score_list</span>
+
+<span class="n">date_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[69]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2018-06-27 11:40:22.709474</td>
+<td>20</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2018-06-28 11:40:22.709474</td>
+<td>48</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2018-06-29 11:40:22.709474</td>
+<td>29</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2018-06-30 11:40:22.709474</td>
+<td>74</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2018-07-01 11:40:22.709474</td>
+<td>78</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="create-datetime-index">create datetime index<a class="anchor-link" href="#create-datetime-index">¶</a></h3><ul>
+<li>For grouping to work, we need to create a datetime index from our date data</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">date_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span>
+
+<span class="n">date_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[70]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>score</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2018-06-27 11:40:22.709474</th>
+<td>2018-06-27 11:40:22.709474</td>
+<td>20</td>
+</tr>
+<tr>
+<th>2018-06-28 11:40:22.709474</th>
+<td>2018-06-28 11:40:22.709474</td>
+<td>48</td>
+</tr>
+<tr>
+<th>2018-06-29 11:40:22.709474</th>
+<td>2018-06-29 11:40:22.709474</td>
+<td>29</td>
+</tr>
+<tr>
+<th>2018-06-30 11:40:22.709474</th>
+<td>2018-06-30 11:40:22.709474</td>
+<td>74</td>
+</tr>
+<tr>
+<th>2018-07-01 11:40:22.709474</th>
+<td>2018-07-01 11:40:22.709474</td>
+<td>78</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the average score for each month</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [71]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">'M'</span><span class="p">))[</span><span class="s1">'score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[71]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>date
+2018-06-30    42.750000
+2018-07-31    41.580645
+2018-08-31    47.612903
+2018-09-30    44.800000
+2018-10-31    37.870968
+2018-11-30    45.166667
+2018-12-31    41.935484
+2019-01-31    56.903226
+2019-02-28    45.357143
+2019-03-31    42.645161
+2019-04-30    52.066667
+2019-05-31    53.064516
+2019-06-30    46.115385
+Freq: M, Name: score, dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Another</strong> way to do the same thing using <code>**resample()**</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [73]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)[</span><span class="s1">'score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[73]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>date
+2018-06-30    42.750000
+2018-07-31    41.580645
+2018-08-31    47.612903
+2018-09-30    44.800000
+2018-10-31    37.870968
+2018-11-30    45.166667
+2018-12-31    41.935484
+2019-01-31    56.903226
+2019-02-28    45.357143
+2019-03-31    42.645161
+2019-04-30    52.066667
+2019-05-31    53.064516
+2019-06-30    46.115385
+Freq: M, Name: score, dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="border-box-sizing" id="notebook" tabindex="-1">
+<div class="container" id="notebook-container">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Grouping-Data-with-Pandas">Grouping Data with Pandas<a class="anchor-link" href="#Grouping-Data-with-Pandas">¶</a></h1><ul>
+<li>Using <code>groupby()</code> </li>
+<li>More info on grouby in the <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.groupby.html">Docs</a></li>
+<li>Datetime info can be found <a href="http://pandas.pydata.org/pandas-docs/stable/timeseries.html">here</a></li>
+<li>Data can be found <a href="https://github.com/stevesimmons/PyData-PandasFromTheInside">here</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [57]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">datetime</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [35]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import data</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'scores.csv'</span><span class="p">)</span>
+
+<span class="c1"># view the first 10 rows</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[35]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Date</th>
+<th>Venue</th>
+<th>Round</th>
+<th>Team</th>
+<th>G</th>
+<th>B</th>
+<th>F</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Fitzroy</td>
+<td>6</td>
+<td>13</td>
+<td>49</td>
+<td>16</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Carlton</td>
+<td>2</td>
+<td>4</td>
+<td>16</td>
+<td>49</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Geelong</td>
+<td>3</td>
+<td>6</td>
+<td>24</td>
+<td>47</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Essendon</td>
+<td>7</td>
+<td>5</td>
+<td>47</td>
+<td>24</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1897-05-08</td>
+<td>Lake Oval</td>
+<td>R1</td>
+<td>South Melbourne</td>
+<td>3</td>
+<td>9</td>
+<td>27</td>
+<td>44</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>groupby()</strong> function essentialy groups data and allows you to apply function to that data.</p>
+<p>Below, lets group by the team and get the total count of games each team played.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [7]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Team'</span><span class="p">)[</span><span class="s1">'Team'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Team
+Adelaide             584
+Brisbane Bears       222
+Brisbane Lions       445
+Carlton             2431
+Collingwood         2469
+Essendon            2395
+Fitzroy             1928
+Footscray           1431
+Fremantle            483
+GW Sydney             94
+Geelong             2363
+Gold Coast           116
+Hawthorn            1912
+Kangaroos            209
+Melbourne           2336
+North Melbourne     1694
+Port Adelaide        446
+Richmond            2190
+South Melbourne     1570
+St Kilda            2312
+Sydney               793
+University           126
+West Coast           688
+Western Bulldogs     443
+Name: Team, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Grouping is useful for applying aggregate calculations on you data. e.g. Find the average number of goals scored by each team.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [13]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Team'</span><span class="p">])[</span><span class="s1">'G'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[13]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Team
+Adelaide            13.753425
+Brisbane Bears      12.846847
+Brisbane Lions      13.676404
+Carlton             12.203209
+Collingwood         12.349939
+Essendon            12.382046
+Fitzroy             10.945021
+Footscray           11.499651
+Fremantle           12.759834
+GW Sydney           10.904255
+Geelong             12.269996
+Gold Coast          11.198276
+Hawthorn            13.010983
+Kangaroos           14.425837
+Melbourne           11.557791
+North Melbourne     12.390791
+Port Adelaide       13.432735
+Richmond            12.449772
+South Melbourne     10.429936
+St Kilda            10.974048
+Sydney              14.060530
+University           6.674603
+West Coast          13.805233
+Western Bulldogs    14.255079
+Name: G, dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can groupby multiple levels.</p>
+<p>e.g. For each Venue, find the total number of games each Team played at that Venue.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [15]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Venue'</span><span class="p">,</span> <span class="s1">'Team'</span><span class="p">])[</span><span class="s1">'Team'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Venue            Team            
+Adelaide Oval    Adelaide             26
+                 Brisbane Lions        2
+                 Carlton               1
+                 Collingwood           2
+                 Essendon              2
+                 Fremantle             4
+                 GW Sydney             2
+                 Geelong               3
+                 Gold Coast            2
+                 Hawthorn              4
+                 Melbourne             4
+                 North Melbourne       2
+                 Port Adelaide        30
+                 Richmond              4
+                 St Kilda              5
+                 Sydney                4
+                 West Coast            3
+                 Western Bulldogs      2
+Albury           North Melbourne       1
+                 South Melbourne       1
+Arden St         Carlton              47
+                 Collingwood          44
+                 Essendon             48
+                 Fitzroy              47
+                 Footscray            50
+                 Geelong              46
+                 Hawthorn             47
+                 Melbourne            50
+                 North Melbourne     529
+                 Richmond             49
+                                    ... 
+Windy Hill       Richmond             57
+                 South Melbourne      51
+                 St Kilda             53
+                 Sydney                8
+                 West Coast            5
+Yallourn         Footscray             1
+                 St Kilda              1
+Yarraville Oval  Carlton               1
+                 Essendon              1
+                 Fitzroy               1
+                 Footscray             7
+                 Hawthorn              1
+                 Richmond              1
+                 South Melbourne       1
+                 St Kilda              1
+York Park        Adelaide              5
+                 Brisbane Lions        7
+                 Fremantle            10
+                 GW Sydney             1
+                 Geelong               1
+                 Gold Coast            3
+                 Hawthorn             49
+                 Kangaroos             2
+                 North Melbourne       4
+                 Port Adelaide         8
+                 Richmond              1
+                 St Kilda             10
+                 Sydney                1
+                 West Coast            7
+                 Western Bulldogs      5
+Name: Team, Length: 561, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Grouping-by-Date">Grouping by Date<a class="anchor-link" href="#Grouping-by-Date">¶</a></h3><ul>
+<li>You can group by <strong>datetime</strong> objects. </li>
+<li><p>There are multiple ways to do this, I will show you 2.</p>
+</li>
+<li><p><strong>Before</strong> you start, you need to convert the Date into a <strong>datetime</strong> object</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Converting-Dates-into-datetime-objects">Converting Dates into datetime objects<a class="anchor-link" href="#Converting-Dates-into-datetime-objects">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [36]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Convert the date variable into a datetime object</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[36]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Date</th>
+<th>Venue</th>
+<th>Round</th>
+<th>Team</th>
+<th>G</th>
+<th>B</th>
+<th>F</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Fitzroy</td>
+<td>6</td>
+<td>13</td>
+<td>49</td>
+<td>16</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Carlton</td>
+<td>2</td>
+<td>4</td>
+<td>16</td>
+<td>49</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Geelong</td>
+<td>3</td>
+<td>6</td>
+<td>24</td>
+<td>47</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Essendon</td>
+<td>7</td>
+<td>5</td>
+<td>47</td>
+<td>24</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1897-05-08</td>
+<td>Lake Oval</td>
+<td>R1</td>
+<td>South Melbourne</td>
+<td>3</td>
+<td>9</td>
+<td>27</td>
+<td>44</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [39]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># check that this worked</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[39]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>Timestamp('1897-05-08 00:00:00')</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Split-the-Date-into-Month,-Year,-Day">1. Split the Date into Month, Year, Day<a class="anchor-link" href="#1.-Split-the-Date-into-Month,-Year,-Day">¶</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [49]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># now that you have a datetime object, </span>
+<span class="c1"># you can extract Month, Day and Year easily</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">year</span>  <span class="c1"># 1987</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">month</span> <span class="c1"># 5</span>
+<span class="n">df</span><span class="o">.</span><span class="n">Date</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">day</span>   <span class="c1"># 8</span>
+
+<span class="c1"># now create new columns for with this info</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s1">'year'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">year</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">month</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">'day'</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">'Date'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">day</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[49]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>Date</th>
+<th>Venue</th>
+<th>Round</th>
+<th>Team</th>
+<th>G</th>
+<th>B</th>
+<th>F</th>
+<th>A</th>
+<th>year</th>
+<th>month</th>
+<th>day</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Fitzroy</td>
+<td>6</td>
+<td>13</td>
+<td>49</td>
+<td>16</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>1</th>
+<td>1897-05-08</td>
+<td>Brunswick St</td>
+<td>R1</td>
+<td>Carlton</td>
+<td>2</td>
+<td>4</td>
+<td>16</td>
+<td>49</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>2</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Geelong</td>
+<td>3</td>
+<td>6</td>
+<td>24</td>
+<td>47</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>3</th>
+<td>1897-05-08</td>
+<td>Corio Oval</td>
+<td>R1</td>
+<td>Essendon</td>
+<td>7</td>
+<td>5</td>
+<td>47</td>
+<td>24</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+<tr>
+<th>4</th>
+<td>1897-05-08</td>
+<td>Lake Oval</td>
+<td>R1</td>
+<td>South Melbourne</td>
+<td>3</td>
+<td>9</td>
+<td>27</td>
+<td>44</td>
+<td>1897</td>
+<td>5</td>
+<td>8</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now, you can use the new columns to group the data</p>
+<p>e.g. FInd the number of Rounds played <strong>each month</strong> in <strong>2014</strong></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [50]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">'year == 2014'</span><span class="p">)</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'month'</span><span class="p">)[</span><span class="s1">'Round'</span><span class="p">]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[50]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>month
+3    36
+4    72
+5    64
+6    80
+7    56
+8    88
+9    18
+Name: Round, dtype: int64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Create-a-datetime-index">2. Create a datetime index<a class="anchor-link" href="#2.-Create-a-datetime-index">¶</a></h3><ul>
+<li>This mehtod is NOT ideal for THIS dataset because there are multiple games played on each day</li>
+<li>We will create some new data to work with</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [69]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">base</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span>
+
+<span class="c1"># create a list of dates spanning 365 days</span>
+<span class="n">date_list</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="n">base</span><span class="p">,</span> <span class="n">periods</span><span class="o">=</span><span class="mi">365</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+
+<span class="c1"># Create a list of numeric values, spanning 365 values</span>
+<span class="n">score_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">365</span><span class="p">))</span>
+
+<span class="c1"># create empty dataframe</span>
+<span class="n">date_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+<span class="c1"># append data</span>
+<span class="n">date_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span> <span class="o">=</span> <span class="n">date_list</span>
+<span class="n">date_df</span><span class="p">[</span><span class="s1">'score'</span><span class="p">]</span> <span class="o">=</span> <span class="n">score_list</span>
+
+<span class="n">date_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[69]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>score</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>0</th>
+<td>2018-06-27 11:40:22.709474</td>
+<td>20</td>
+</tr>
+<tr>
+<th>1</th>
+<td>2018-06-28 11:40:22.709474</td>
+<td>48</td>
+</tr>
+<tr>
+<th>2</th>
+<td>2018-06-29 11:40:22.709474</td>
+<td>29</td>
+</tr>
+<tr>
+<th>3</th>
+<td>2018-06-30 11:40:22.709474</td>
+<td>74</td>
+</tr>
+<tr>
+<th>4</th>
+<td>2018-07-01 11:40:22.709474</td>
+<td>78</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="create-datetime-index">create datetime index<a class="anchor-link" href="#create-datetime-index">¶</a></h3><ul>
+<li>For grouping to work, we need to create a datetime index from our date data</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [70]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">date_df</span><span class="p">[</span><span class="s1">'date'</span><span class="p">]</span>
+
+<span class="n">date_df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[70]:</div>
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+<thead>
+<tr style="text-align: right;">
+<th></th>
+<th>date</th>
+<th>score</th>
+</tr>
+<tr>
+<th>date</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th>2018-06-27 11:40:22.709474</th>
+<td>2018-06-27 11:40:22.709474</td>
+<td>20</td>
+</tr>
+<tr>
+<th>2018-06-28 11:40:22.709474</th>
+<td>2018-06-28 11:40:22.709474</td>
+<td>48</td>
+</tr>
+<tr>
+<th>2018-06-29 11:40:22.709474</th>
+<td>2018-06-29 11:40:22.709474</td>
+<td>29</td>
+</tr>
+<tr>
+<th>2018-06-30 11:40:22.709474</th>
+<td>2018-06-30 11:40:22.709474</td>
+<td>74</td>
+</tr>
+<tr>
+<th>2018-07-01 11:40:22.709474</th>
+<td>2018-07-01 11:40:22.709474</td>
+<td>78</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Find the average score for each month</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [71]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Grouper</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">'M'</span><span class="p">))[</span><span class="s1">'score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[71]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>date
+2018-06-30    42.750000
+2018-07-31    41.580645
+2018-08-31    47.612903
+2018-09-30    44.800000
+2018-10-31    37.870968
+2018-11-30    45.166667
+2018-12-31    41.935484
+2019-01-31    56.903226
+2019-02-28    45.357143
+2019-03-31    42.645161
+2019-04-30    52.066667
+2019-05-31    53.064516
+2019-06-30    46.115385
+Freq: M, Name: score, dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Another</strong> way to do the same thing using <code>**resample()**</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [73]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">date_df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">'M'</span><span class="p">)[</span><span class="s1">'score'</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
+<div class="prompt output_prompt">Out[73]:</div>
+<div class="output_text output_subarea output_execute_result">
+<pre>date
+2018-06-30    42.750000
+2018-07-31    41.580645
+2018-08-31    47.612903
+2018-09-30    44.800000
+2018-10-31    37.870968
+2018-11-30    45.166667
+2018-12-31    41.935484
+2019-01-31    56.903226
+2019-02-28    45.357143
+2019-03-31    42.645161
+2019-04-30    52.066667
+2019-05-31    53.064516
+2019-06-30    46.115385
+Freq: M, Name: score, dtype: float64</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><!-- INSERT JUPYTER BELOW -->
+<!-- INSERT JUPYTER ABOVE -->
+</div>
+</body>
+<div style="height:100px"></div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+</html>
