@@ -1,0 +1,1136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Importing a CSV with Pandas</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body style="padding-top: 70px">
+
+  <!-- PAGE NAVBAR -->
+
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #337ab7;">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="color: #fff;" href="../index.html">Devin de Araujo</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html#projects"" style="color: #fff;">Projects<span class="sr-only">(current)</span></a></li>
+        <li><a href="../index.html#tech-work" style="color: #fff;">Technical Notes</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fff;">About<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../index.html">About</a></li>
+            <li><a href="https://github.com/what-the-dev" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/what_the_dev" target="_blank">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/devin-de-araujo-37088a1b/" target="_blank">Linkedin</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+
+<!-- INSERT JUPYTER BELOW -->
+
+
+
+  <div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Importing-Data-with-Pandas">Importing Data with Pandas<a class="anchor-link" href="#Importing-Data-with-Pandas">&#182;</a></h1><p>Pandas makes it straightforward to import data in a variety of different formats.</p>
+<p>See the <a href="https://pandas.pydata.org/pandas-docs/stable/api.html#flat-file" target="_blank">documentation</a> for detailed information</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-some-Data">Create some Data<a class="anchor-link" href="#Create-some-Data">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;first&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;James&#39;</span><span class="p">,</span> <span class="s1">&#39;Jane&#39;</span><span class="p">,</span> <span class="s1">&#39;Adam&#39;</span><span class="p">,</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;Tom&#39;</span><span class="p">,</span> <span class="s1">&#39;Carol&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;last&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Smith&#39;</span><span class="p">,</span> <span class="s1">&#39;Watson&#39;</span><span class="p">,</span> <span class="s1">&#39;Miller&#39;</span><span class="p">,</span> <span class="s1">&#39;Thompson&#39;</span><span class="p">,</span> <span class="s1">&#39;Piper&#39;</span><span class="p">,</span> <span class="s1">&#39;Winters&#39;</span><span class="p">],</span> 
+        <span class="s1">&#39;age&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">],</span> 
+        <span class="s1">&#39;height_cm&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">175.7</span><span class="p">,</span> <span class="mi">163</span><span class="p">,</span> <span class="mf">176.5</span><span class="p">,</span> <span class="mf">163.3</span><span class="p">,</span> <span class="mf">168.5</span><span class="p">,</span> <span class="mf">177.5</span><span class="p">],</span>
+        <span class="s1">&#39;weight_kg&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mf">66.9</span><span class="p">,</span> <span class="mf">56.7</span><span class="p">,</span> <span class="mf">68.9</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mf">57.5</span><span class="p">,</span> <span class="mf">63.4</span><span class="p">],</span>
+        <span class="s1">&#39;income&#39;</span><span class="p">:[</span><span class="s1">&#39;1,000&#39;</span><span class="p">,</span> <span class="mi">800</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">980</span><span class="p">,</span> <span class="s1">&#39;2,500&#39;</span><span class="p">,</span> <span class="s1">&#39;2,950&#39;</span><span class="p">]}</span>
+
+<span class="c1"># create a DataFrame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;first&#39;</span><span class="p">,</span> <span class="s1">&#39;last&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;height_cm&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_kg&#39;</span><span class="p">,</span> <span class="s1">&#39;income&#39;</span><span class="p">])</span>
+
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>age</th>
+      <th>height_cm</th>
+      <th>weight_kg</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Saving-Data">Saving Data<a class="anchor-link" href="#Saving-Data">&#182;</a></h1><ul>
+<li>We will save the data in different formats, then re-import using 3 different methods.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># save to CSV</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;people_data.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># save to TSV</span>
+<span class="c1"># supply \t as separator</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;people_data.tsv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+<span class="c1"># save to EXCEL</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;people_data.xlsx&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Importing-Data">Importing Data<a class="anchor-link" href="#Importing-Data">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-CSV">Load CSV<a class="anchor-link" href="#Load-CSV">&#182;</a></h3><ul>
+<li>using <code>.read_csv()</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;people_data.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>age</th>
+      <th>height_cm</th>
+      <th>weight_kg</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-CSV-with-no-header">Load CSV with no header<a class="anchor-link" href="#Load-CSV-with-no-header">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;people_data.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>first</td>
+      <td>last</td>
+      <td>age</td>
+      <td>height_cm</td>
+      <td>weight_kg</td>
+      <td>income</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-CSV-with-specific-header">Load CSV with specific header<a class="anchor-link" href="#Load-CSV-with-specific-header">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;people_data.csv&#39;</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;first_name&#39;</span><span class="p">,</span> <span class="s1">&#39;last_name&#39;</span><span class="p">,</span> <span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;height_in_cm&#39;</span><span class="p">,</span> <span class="s1">&#39;weight_in_kg&#39;</span><span class="p">,</span> <span class="s1">&#39;monthly_income&#39;</span><span class="p">])</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first_name</th>
+      <th>last_name</th>
+      <th>age</th>
+      <th>height_in_cm</th>
+      <th>weight_in_kg</th>
+      <th>monthly_income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>first</td>
+      <td>last</td>
+      <td>age</td>
+      <td>height_cm</td>
+      <td>weight_kg</td>
+      <td>income</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-CSV---skip-first-3-rows">Load CSV - skip first 3 rows<a class="anchor-link" href="#Load-CSV---skip-first-3-rows">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;people_data.csv&#39;</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[19]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Adam</th>
+      <th>Miller</th>
+      <th>19</th>
+      <th>176.5</th>
+      <th>68.9</th>
+      <th>350</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-CSV---specify-thousands-seperator">Load CSV - specify thousands seperator<a class="anchor-link" href="#Load-CSV---specify-thousands-seperator">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;people_data.csv&#39;</span><span class="p">,</span> <span class="n">thousands</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[21]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>age</th>
+      <th>height_cm</th>
+      <th>weight_kg</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-TSV">Load TSV<a class="anchor-link" href="#Load-TSV">&#182;</a></h3><ul>
+<li>using <code>.read_csv()</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;people_data.xlsx&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>age</th>
+      <th>height_cm</th>
+      <th>weight_kg</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Load-EXCEL">Load EXCEL<a class="anchor-link" href="#Load-EXCEL">&#182;</a></h3><ul>
+<li>using <code>.read_excel()</code></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;people_data.xlsx&#39;</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>first</th>
+      <th>last</th>
+      <th>age</th>
+      <th>height_cm</th>
+      <th>weight_kg</th>
+      <th>income</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>James</td>
+      <td>Smith</td>
+      <td>18</td>
+      <td>175.7</td>
+      <td>66.9</td>
+      <td>1,000</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jane</td>
+      <td>Watson</td>
+      <td>18</td>
+      <td>163.0</td>
+      <td>56.7</td>
+      <td>800</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Adam</td>
+      <td>Miller</td>
+      <td>19</td>
+      <td>176.5</td>
+      <td>68.9</td>
+      <td>350</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Sara</td>
+      <td>Thompson</td>
+      <td>19</td>
+      <td>163.3</td>
+      <td>58.0</td>
+      <td>980</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tom</td>
+      <td>Piper</td>
+      <td>20</td>
+      <td>168.5</td>
+      <td>57.5</td>
+      <td>2,500</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Carol</td>
+      <td>Winters</td>
+      <td>20</td>
+      <td>177.5</td>
+      <td>63.4</td>
+      <td>2,950</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+</div>
+
+<!-- INSERT JUPYTER ABOVE -->
+
+</body>
+
+<div style="height:100px"></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>

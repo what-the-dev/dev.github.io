@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Devin de Araujo</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+  </head>
+
+  <body style="padding-top: 70px">
+
+  <!-- PAGE NAVBAR -->
+
+  <nav class="navbar navbar-default navbar-fixed-top" style="background-color: #337ab7;">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" style="color: #fff;" href="../index.html">Devin de Araujo</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html#projects" style="color: #fff;">Projects<span class="sr-only">(current)</span></a></li>
+        <li><a href="../index.html#tech-work" style="color: #fff;">Technical Notes</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color: #fff;">About<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="../index.html">About</a></li>
+            <li><a href="https://github.com/what-the-dev" target="_blank">GitHub</a></li>
+            <li><a href="https://twitter.com/what_the_dev" target="_blank">Twitter</a></li>
+            <li><a href="https://www.linkedin.com/in/devin-de-araujo-37088a1b/" target="_blank">Linkedin</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+
+<!-- INSERT JUPYTER BELOW -->
+
+
+<div tabindex="-1" id="notebook" class="border-box-sizing">
+    <div class="container" id="notebook-container">
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Dropping-Rows-and-Columns-from-a-Dataframe">Dropping Rows and Columns from a Dataframe<a class="anchor-link" href="#Dropping-Rows-and-Columns-from-a-Dataframe">&#182;</a></h1><ul>
+<li>Using <code>DataFrame.drop()</code></li>
+<li>'Remove rows or columns by specifying label names and corresponding axis, or by specifying directly index or column names.' - Pandas <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.drop.html" target="_blank">Docs</a> </li>
+<li>The data can be found <a href="https://github.com/stevesimmons/PyData-PandasFromTheInside" target="_blank">here</a></li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import first 10 rows of a data frame</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;scores.csv&#39;</span><span class="p">,</span> <span class="n">nrows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+
+<span class="n">df</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[18]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+      <th>G</th>
+      <th>B</th>
+      <th>F</th>
+      <th>A</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1897-05-08</td>
+      <td>Brunswick St</td>
+      <td>R1</td>
+      <td>Fitzroy</td>
+      <td>6</td>
+      <td>13</td>
+      <td>49</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1897-05-08</td>
+      <td>Brunswick St</td>
+      <td>R1</td>
+      <td>Carlton</td>
+      <td>2</td>
+      <td>4</td>
+      <td>16</td>
+      <td>49</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1897-05-08</td>
+      <td>Corio Oval</td>
+      <td>R1</td>
+      <td>Geelong</td>
+      <td>3</td>
+      <td>6</td>
+      <td>24</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1897-05-08</td>
+      <td>Corio Oval</td>
+      <td>R1</td>
+      <td>Essendon</td>
+      <td>7</td>
+      <td>5</td>
+      <td>47</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>South Melbourne</td>
+      <td>3</td>
+      <td>9</td>
+      <td>27</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>Melbourne</td>
+      <td>6</td>
+      <td>8</td>
+      <td>44</td>
+      <td>27</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>Collingwood</td>
+      <td>5</td>
+      <td>11</td>
+      <td>41</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>St Kilda</td>
+      <td>2</td>
+      <td>4</td>
+      <td>16</td>
+      <td>41</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>R2</td>
+      <td>Essendon</td>
+      <td>4</td>
+      <td>6</td>
+      <td>30</td>
+      <td>50</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>R2</td>
+      <td>Collingwood</td>
+      <td>8</td>
+      <td>2</td>
+      <td>50</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Drop-columns-by-name">Drop columns by name<a class="anchor-link" href="#Drop-columns-by-name">&#182;</a></h3><ul>
+<li>You can drop multiple columns at a time</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># METHOD 1</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1897-05-08</td>
+      <td>Brunswick St</td>
+      <td>R1</td>
+      <td>Fitzroy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1897-05-08</td>
+      <td>Brunswick St</td>
+      <td>R1</td>
+      <td>Carlton</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1897-05-08</td>
+      <td>Corio Oval</td>
+      <td>R1</td>
+      <td>Geelong</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1897-05-08</td>
+      <td>Corio Oval</td>
+      <td>R1</td>
+      <td>Essendon</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>South Melbourne</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># METHOD 2</span>
+<span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;G&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">,</span><span class="s1">&#39;F&#39;</span><span class="p">,</span><span class="s1">&#39;A&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[9]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1897-05-08</td>
+      <td>Brunswick St</td>
+      <td>R1</td>
+      <td>Fitzroy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1897-05-08</td>
+      <td>Brunswick St</td>
+      <td>R1</td>
+      <td>Carlton</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1897-05-08</td>
+      <td>Corio Oval</td>
+      <td>R1</td>
+      <td>Geelong</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1897-05-08</td>
+      <td>Corio Oval</td>
+      <td>R1</td>
+      <td>Essendon</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>South Melbourne</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Drop-Rows-by-Index">Drop Rows by Index<a class="anchor-link" href="#Drop-Rows-by-Index">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[11]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>South Melbourne</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>Melbourne</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>Collingwood</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>St Kilda</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>R2</td>
+      <td>Essendon</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Drop-Row-containing-a-certain-value">Drop Row containing a certain value<a class="anchor-link" href="#Drop-Row-containing-a-certain-value">&#182;</a></h3><p>This creates a <strong>new</strong> dataframe that includes all rows where the condition is met. In this case, where the <strong>Team</strong> is <strong>NOT equal to 'South Melbourne'</strong>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">Team</span> <span class="o">!=</span> <span class="s1">&#39;South Melbourne&#39;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[14]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>Melbourne</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>Collingwood</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>St Kilda</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>R2</td>
+      <td>Essendon</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>R2</td>
+      <td>Collingwood</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also use <strong>slicing</strong> to drop rows</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Keep the top 2</span>
+<span class="n">df</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[15]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>South Melbourne</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>Melbourne</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop the the bottom 2</span>
+<span class="n">df</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[16]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Round</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>South Melbourne</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1897-05-08</td>
+      <td>Lake Oval</td>
+      <td>R1</td>
+      <td>Melbourne</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>Collingwood</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>R1</td>
+      <td>St Kilda</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Drop-by-Index-and-Column">Drop by Index and Column<a class="anchor-link" href="#Drop-by-Index-and-Column">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Round&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+<div class="prompt output_prompt">Out[17]:</div>
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>Venue</th>
+      <th>Team</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>Collingwood</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1897-05-08</td>
+      <td>Victoria Park</td>
+      <td>St Kilda</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>Essendon</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1897-05-15</td>
+      <td>East Melbourne</td>
+      <td>Collingwood</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    </div>
+  </div>
+
+
+<!-- INSERT JUPYTER ABOVE -->
+
+</body>
+
+<div style="height:100px"></div>
+
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
