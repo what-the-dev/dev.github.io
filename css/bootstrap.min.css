@@ -118,3 +118,8 @@ div.output_prompt {
 	background-color: #286192; 
 }
 
+/* commentary colour */
+.highlight .c1 {
+    color: #408080;
+    font-style: italic;
+}
