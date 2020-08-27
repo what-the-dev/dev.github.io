@@ -1,5 +1,5 @@
 # dev.github.io
 
-go here to see my site
+please visit..
 
 https://what-the-dev.github.io/dev.github.io/

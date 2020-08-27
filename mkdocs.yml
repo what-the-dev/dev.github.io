@@ -9,7 +9,7 @@ theme:
     #scheme: default
     primary: white
     accent: pink
-  logo: images/ddas.svg
+  logo: images/dda.svg
   favicon: images/dda.svg
 
 markdown_extensions:
