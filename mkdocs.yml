@@ -1,0 +1,30 @@
+site_name: devin de araujo
+site_author: Devin de Araujo <devindearaujo@gmail.com>
+#site_url: http://www.yourwebsite.com
+copyright: Copyright 2020 Devin de Araujo
+
+theme:
+  name: material
+  palette: 
+    #scheme: default
+    primary: white
+    accent: pink
+  logo: images/ddas.svg
+  favicon: images/dda.svg
+
+markdown_extensions:
+  - toc:
+      # toc_depth: 2
+
+plugins:
+  - search
+  - mkdocs-jupyter
+
+# footer socials
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/what-the-dev
+  social:
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/devindearaujo/
