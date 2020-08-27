@@ -1,5 +1,5 @@
 # dev.github.io
 
-Spotify EDA from Udacity Data Analyst Nanodegree... 
+go here to see my site
 
 https://what-the-dev.github.io/dev.github.io/
