@@ -1,0 +1,13 @@
+.md-sidebar--secondary {
+    display: none;
+  }
+
+table.dataframe {
+    margin: 5px 5px 5px 5px;
+    overflow-x: auto;
+    font-size: smaller;
+}
+
+.output_wrapper {
+    overflow-x: auto;
+}
