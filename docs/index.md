@@ -11,6 +11,8 @@ Digital Analyst working at SEEK, specialising in Online and Tech. I work closely
 - Web Analytics
 - Data Visualisation
 
+### Coming soon..
+- Deep Learning
 
 
 
