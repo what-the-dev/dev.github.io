@@ -1,0 +1,2755 @@
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2004/">
+      
+      
+        <meta name="author" content="Devin de Araujo <devindearaujo@gmail.com>">
+      
+      <link rel="shortcut icon" href="../../images/dda.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
+    
+    
+      
+        <title>Lesson 04 - devin de araujo</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.b5d04df8.min.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.9ab2c1f8.min.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="">
+      
+    
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+      <link rel="stylesheet" href="../../css/ansi-colours.css">
+    
+      <link rel="stylesheet" href="../../css/pandas-dataframe.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="pink">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lesson-4-under-the-hood-training-a-digit-classifier" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://what-the-dev.github.io/dev.github.io/" title="devin de araujo" class="md-header-nav__button md-logo" aria-label="devin de araujo">
+      
+  <img src="../../images/dda.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      
+        <div class="md-header-nav__ellipsis">
+          <span class="md-header-nav__topic md-ellipsis">
+            devin de araujo
+          </span>
+          <span class="md-header-nav__topic md-ellipsis">
+            
+              Lesson 04
+            
+          </span>
+        </div>
+      
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+        
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://what-the-dev.github.io/dev.github.io/" title="devin de araujo" class="md-nav__button md-logo" aria-label="devin de araujo">
+      
+  <img src="../../images/dda.svg" alt="logo">
+
+    </a>
+    devin de araujo
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Fastai deep learning 2020
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
+      </span>
+    </label>
+    <nav class="md-nav" aria-label="Fastai deep learning 2020" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        </span>
+        Fastai deep learning 2020
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2001/" title="Lesson 01" class="md-nav__link">
+      Lesson 01
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2002/" title="Lesson 02" class="md-nav__link">
+      Lesson 02
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2003%20pt%201/" title="Lesson 03 pt 1" class="md-nav__link">
+      Lesson 03 pt 1
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2003%20pt%202/" title="Lesson 03 pt 2" class="md-nav__link">
+      Lesson 03 pt 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Lesson 04
+        <span class="md-nav__icon md-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
+        </span>
+      </label>
+    
+    <a href="./" title="Lesson 04" class="md-nav__link md-nav__link--active">
+      Lesson 04
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mnist-loss-function" class="md-nav__link">
+    MNIST Loss function
+  </a>
+  
+    <nav class="md-nav" aria-label="MNIST Loss function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sigmoid-function" class="md-nav__link">
+    The Sigmoid function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sgd-and-mini-batches" class="md-nav__link">
+    SGD and Mini-batches
+  </a>
+  
+    <nav class="md-nav" aria-label="SGD and Mini-batches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    Putting it together
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactor-and-clean-up" class="md-nav__link">
+    Refactor and clean up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-linearity" class="md-nav__link">
+    Non-Linearity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looking-inside" class="md-nav__link">
+    Looking inside...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastai-in-full" class="md-nav__link">
+    fastai in full
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mnist-loss-function" class="md-nav__link">
+    MNIST Loss function
+  </a>
+  
+    <nav class="md-nav" aria-label="MNIST Loss function">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-sigmoid-function" class="md-nav__link">
+    The Sigmoid function
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sgd-and-mini-batches" class="md-nav__link">
+    SGD and Mini-batches
+  </a>
+  
+    <nav class="md-nav" aria-label="SGD and Mini-batches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#putting-it-together" class="md-nav__link">
+    Putting it together
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#refactor-and-clean-up" class="md-nav__link">
+    Refactor and clean up
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#non-linearity" class="md-nav__link">
+    Non-Linearity
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#looking-inside" class="md-nav__link">
+    Looking inside...
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fastai-in-full" class="md-nav__link">
+    fastai in full
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    Summary
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 04.ipynb" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                  
+                
+                
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script>
+(function() {
+  function addWidgetsRenderer() {
+    var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
+    var scriptElement = document.createElement('script');
+    var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
+    var widgetState;
+
+    // Fallback for older version:
+    try {
+      widgetState = mimeElement && JSON.parse(mimeElement.innerHTML);
+
+      if (widgetState && (widgetState.version_major < 2 || !widgetState.version_major)) {
+        widgetRendererSrc = 'jupyter-js-widgets@*/dist/embed.js';
+      }
+    } catch(e) {}
+
+    scriptElement.src = widgetRendererSrc;
+    document.body.appendChild(scriptElement);
+  }
+
+  document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
+}());
+</script>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h1 id="lesson-4-under-the-hood-training-a-digit-classifier">Lesson 4: Under the Hood: Training a Digit Classifier</h1>
+<p><strong>28-09-2020</strong></p>
+<p>This notebook will go over <em>some</em> of the practical material discussed in <a href="https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb">lesson 4</a> of the fastai 2020 course, namely, some different ways of training a digit classifier using the MNIST data set. The lesson 4 video is an extension on the lesson 3 video. There is a lot to cover...</p>
+<p>In the last notebook we looked at some simple examples of using SGD to optimise a model. In this notebook we will apply the concepts to the MNIST problem from scratch then leter, we will refactor the code using PyTorch and fastai modules.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># imports and things we need from previous notebooks</span>
+
+<span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="c1"># data </span>
+<span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">MNIST_SAMPLE</span><span class="p">)</span>
+
+<span class="n">threes</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+<span class="n">sevens</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;7&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
+
+<span class="n">seven_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">sevens</span><span class="p">]</span>
+<span class="n">three_tensors</span> <span class="o">=</span> <span class="p">[</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">threes</span><span class="p">]</span>
+
+<span class="n">stacked_sevens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">seven_tensors</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">stacked_threes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">three_tensors</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span>
+
+<span class="n">valid_3_tens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> 
+                            <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;valid&#39;</span><span class="o">/</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()])</span>
+<span class="n">valid_3_tens</span> <span class="o">=</span> <span class="n">valid_3_tens</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span>
+<span class="n">valid_7_tens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> 
+                            <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;valid&#39;</span><span class="o">/</span><span class="s1">&#39;7&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()])</span>
+<span class="n">valid_7_tens</span> <span class="o">=</span> <span class="n">valid_7_tens</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">plot_function</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">tx</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ty</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">4</span><span class="p">)):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="nb">min</span><span class="p">,</span><span class="nb">max</span><span class="p">)</span>
+    <span class="n">fig</span><span class="p">,</span><span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="n">figsize</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">tx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ty</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="n">ty</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">title</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h2 id="mnist-loss-function">MNIST Loss function</h2>
+<p>Our X values will be pixels, we need to reshape the data using <code>view</code>. We want to concatenate our x's into a single tensor, then change them from a list of matrices (a rank-3 tensor) to a list of vectors (a rank-2 tensor). Why? Because this example is meant to be simplified. </p>
+<p><code>view</code> will return a new tensor with the same data as the original tensor but with a different shape that we define.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># concat 3s and 7s, then reshape into a matrix</span>
+<span class="c1"># so that each row is 1 image, with all rows and columns in a single vector</span>
+<span class="n">train_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">stacked_threes</span><span class="p">,</span> <span class="n">stacked_sevens</span><span class="p">])</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">)</span>
+
+<span class="c1"># label the data</span>
+<span class="c1"># 3 == 1</span>
+<span class="c1"># 7 == 0</span>
+<span class="c1"># we need this to be a matrix</span>
+<span class="c1"># unsqueeze will do this for us</span>
+<span class="n">train_y</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">threes</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">sevens</span><span class="p">))</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># check the shape</span>
+<span class="n">train_x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span><span class="n">train_y</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(torch.Size([12396, 784]), torch.Size([12396, 1]))</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># in PyTorch we need data to be in a tuple for each row</span>
+<span class="c1"># zip will help us with this</span>
+<span class="n">dset</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">train_x</span><span class="p">,</span><span class="n">train_y</span><span class="p">))</span>
+
+<span class="c1"># take a look at the first thing</span>
+<span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">dset</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">y</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(torch.Size([784]), tensor([1]))</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+<code>(torch.Size([784]), tensor([1]))</code> this matches what we would expect
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># repeat for validation</span>
+<span class="n">valid_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">valid_3_tens</span><span class="p">,</span> <span class="n">valid_7_tens</span><span class="p">])</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">)</span>
+<span class="n">valid_y</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">valid_3_tens</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">valid_7_tens</span><span class="p">))</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">valid_dset</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">valid_x</span><span class="p">,</span><span class="n">valid_y</span><span class="p">))</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Now we have training and validation data sets</p>
+<p><strong>1. Randomly initialise weights for each pixel</strong>
+- use <code>torch.randn</code> to create tensor of randomly initialised weights
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">init_params</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span> 
+    <span class="k">return</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">size</span><span class="p">)</span><span class="o">*</span><span class="n">var</span><span class="p">)</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">weights</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">((</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="n">weights</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>torch.Size([784, 1])</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+We need to add a bias term because just using <code>weights*pixels</code> will not be flexible enough. Our function will always be equal to zero when the pixels are equal to zero.<br />
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="n">bias</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+<code>y = w*x+b</code> is the formula for a line, where <code>w</code> are the weights, <code>b</code> is the bias. In neural network jargon, the weights and bias will be our <em>parameters</em>.</p>
+<p>This linear equation is one of the two fundamental equations of any neural network. The other is an <em>activation</em> function that we will see shortly.</p>
+<p>Let's use this to calculate a prediction for one image... <code>weights.T</code> will transpose the weights, this is done to make sure the rows and columns match up for our multiplication
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">train_x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">*</span><span class="n">weights</span><span class="o">.</span><span class="n">T</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">+</span> <span class="n">bias</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([13.3326], grad_fn=&lt;AddBackward0&gt;)</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Now we need to do this for <em>all</em> images. A for loop will be too slow. In PyTorch we can perform matrix multiplication using the @ operator OR by using <code>torch.matmul()</code>.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="c1"># define a linear function that will </span>
+<span class="c1"># multiple the input by weights then add a bias term</span>
+
+<span class="k">def</span> <span class="nf">linear1</span><span class="p">(</span><span class="n">xb</span><span class="p">):</span> <span class="k">return</span> <span class="n">xb</span><span class="nd">@weights</span> <span class="o">+</span> <span class="n">bias</span>
+
+<span class="n">preds</span> <span class="o">=</span> <span class="n">linear1</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+<span class="n">preds</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([[13.3326],
+        [ 9.1011],
+        [ 9.4999],
+        ...,
+        [-1.0068],
+        [15.9130],
+        [12.6228]], grad_fn=&lt;AddBackward0&gt;)</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Notice the result are the same as we just saw above. We can confirm our function is working and can also see that the operation is performed for every image in <code>train_x</code></p>
+<p><strong>checking accuracy</strong>
+- if a prediction is above the threshold, ie if &gt; 0 then it is a 3, less than 0, 7.
+- so we check if a prediction is greater than our threshold of 0, then check these against the validation set.
+- this will return true when a row is correctly predicted
+- we can convert these to floats using <code>.float()</code> then take their mean to check overall accuracy of our randomly initialised model
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">threshold</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="p">(</span><span class="n">preds</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">==</span> <span class="n">train_y</span>
+<span class="n">accuracy</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([[ True],
+        [ True],
+        [ True],
+        ...,
+        [ True],
+        [False],
+        [False]])</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">accuracy</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0.484188437461853</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Let's change one of the weights by a small amount to see how accuracy is affected.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+=</span> <span class="mf">1.0001</span> <span class="c1"># increase the weigh a little</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">linear1</span><span class="p">(</span><span class="n">train_x</span><span class="p">)</span>
+<span class="n">accuracy2</span> <span class="o">=</span> <span class="p">((</span><span class="n">preds</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">==</span> <span class="n">train_y</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+<span class="n">accuracy2</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0.484188437461853</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+This is exactly the same as before. We have a problem, when we calculate the change, our gradient is now 0, this is because if we change a single pixel by a very small amount we might not change an actual prediction.</p>
+<p>So because our gradient is 0, our step will be 0 which means our prediction will be unchanged. </p>
+<p>So our accuracy loss function is not very good. A small change in our weights does not result in a small change in accuracy, so we will have zero gradients.</p>
+</div>
+</div>
+<p>We need a new function that won't have a zero gradient, it needs to be more sensitive to small changes, so that a slightly better prediction needs to have a slightly better loss.</p>
+<p>In other words, then the predictions are close to the targets the loss needs to be small, when they are far away, it needs to be big.</p>
+<p>So let's create a new function to address this issue.
+</div>
+</div></p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># MNIST loss</span>
+
+<span class="k">def</span> <span class="nf">mnist_loss</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">targets</span><span class="o">==</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">preds</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># test case</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>         <span class="c1"># targets</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">])</span> <span class="c1"># predictions</span>
+
+
+<span class="c1"># this is the same as mnist_loss but before the mean</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([0.1000, 0.4000, 0.8000])</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+<code>torch.where</code> is like list comprehension for tensors.</p>
+<p>This function returns a lower loss when predictions are more accurate and a higher loss when they are not.</p>
+<p>But for this to work, we need our predictions to be between 0 and 1, otherwise things do not work.
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">p2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>   <span class="c1"># predictions outside 0, 1 range</span>
+
+<span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">t</span><span class="o">==</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="n">p2</span><span class="p">,</span> <span class="n">p2</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([-0.2000, -1.0000,  1.0000])</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="the-sigmoid-function">The Sigmoid function</h3>
+<ul>
+<li>This function will constrain our numbers between 0 and 1.</li>
+<li>It squashes any input in the range (-inf, inf) to some value in the range (0, 1)
+</div>
+</div></li>
+</ul>
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">sigmoid</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">:</span> <span class="k">return</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">plot_function</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Sigmoid&#39;</span><span class="p">,</span> <span class="nb">min</span><span class="o">=-</span><span class="mi">4</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># MNIST loss with sigmoid</span>
+
+<span class="k">def</span> <span class="nf">mnist_loss</span><span class="p">(</span><span class="n">predictions</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">predictions</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">targets</span><span class="o">==</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">1.</span><span class="o">-</span><span class="n">preds</span><span class="p">,</span> <span class="n">preds</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h2 id="sgd-and-mini-batches">SGD and Mini-batches</h2>
+<p>By batching images and running computations over them is a way to compromise between speed and computational efficiency. </p>
+<p>The size of the batch will impact your accuracy and estimates as well as the speed at which you are able to run computations. The batch size is something to be considered during training.</p>
+<p>The <code>DataLoader</code> class in pytorch helps with batching. It returns an iterator which we can loop through.
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">coll</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+
+<span class="n">dl</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">coll</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>[tensor([ 4, 12,  5,  6,  3]),
+ tensor([10,  9,  2,  0, 14]),
+ tensor([ 7, 13,  8, 11,  1])]</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="putting-it-together">Putting it together</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="c1"># re-initialise weights and params</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">((</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">bias</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># create a data loader</span>
+<span class="n">dl</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">dset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+
+<span class="c1"># grab the first x and y</span>
+<span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="o">=</span> <span class="n">first</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span>
+
+<span class="c1"># check the shape</span>
+<span class="n">xb</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">yb</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(torch.Size([256, 784]), torch.Size([256, 1]))</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># repeat for validation set</span>
+<span class="n">valid_dl</span> <span class="o">=</span> <span class="n">DataLoader</span><span class="p">(</span><span class="n">valid_dset</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># grab a mini batch to test on</span>
+<span class="n">batch</span> <span class="o">=</span> <span class="n">train_x</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>
+<span class="n">batch</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>torch.Size([4, 784])</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># make some predictions</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="n">linear1</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<span class="n">preds</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([[-1.1306],
+        [-3.9293],
+        [-0.6736],
+        [-6.9805]], grad_fn=&lt;AddBackward0&gt;)</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">loss</span> <span class="o">=</span> <span class="n">mnist_loss</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">train_y</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+<span class="n">loss</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor(0.8495, grad_fn=&lt;MeanBackward0&gt;)</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># calculate gradients</span>
+<span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+
+<span class="n">weights</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">weights</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">bias</span><span class="o">.</span><span class="n">grad</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(torch.Size([784, 1]), tensor(-0.0153), tensor([-0.1070]))</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># take those 3 steps and put it in a function</span>
+
+<span class="k">def</span> <span class="nf">calc_grad</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">)</span>
+    <span class="n">loss</span> <span class="o">=</span> <span class="n">mnist_loss</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">yb</span><span class="p">)</span>
+    <span class="n">loss</span><span class="o">.</span><span class="n">backward</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># test it</span>
+
+<span class="n">calc_grad</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">train_y</span><span class="p">[:</span><span class="mi">4</span><span class="p">],</span> <span class="n">linear1</span><span class="p">)</span>
+
+<span class="n">weights</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">weights</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">bias</span><span class="o">.</span><span class="n">grad</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(torch.Size([784, 1]), tensor(-0.0306), tensor([-0.2140]))</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># zero the gradients</span>
+<span class="n">weights</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+<span class="n">bias</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor([0.])</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The last step is to work out how to update the weights and bias based on the gradient and learning rate.</p>
+<p><code>train_epoch</code> loops through the data loader, grab x batch and y batch, calculate the gradient, make a prediction and calculate the loss. Go through each parameter (weights and bias) and for each update with gradient * lr, then zero these in prep for the next loop. </p>
+<p><code>p.data</code> is used because PyTorch keeps track of all operations so it can calculate the gradients, but we do not want the gradients to be calculated on the gradient descent step. 
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">train_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">params</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">dl</span><span class="p">:</span>
+        <span class="n">calc_grad</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span> 
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">params</span><span class="p">:</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">*</span><span class="n">lr</span>
+            <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">zero_</span><span class="p">()</span>        
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+<code>batch_accuracy</code> is similar to the previous loss function, but since we use a sigmoid, which constrains our preds between 0 and 1, we need to check whether preds &gt; 0.5.<br />
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">batch_accuracy</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">):</span>
+    <span class="n">preds</span> <span class="o">=</span> <span class="n">xb</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span>
+    <span class="n">correct</span> <span class="o">=</span> <span class="p">(</span><span class="n">preds</span><span class="o">&gt;</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">==</span> <span class="n">yb</span> <span class="c1"># check predictions against target</span>
+    <span class="k">return</span> <span class="n">correct</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">batch_accuracy</span><span class="p">(</span><span class="n">linear1</span><span class="p">(</span><span class="n">train_x</span><span class="p">[:</span><span class="mi">4</span><span class="p">]),</span> <span class="n">train_y</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>tensor(0.)</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># check accuracy for every batch in the validation set</span>
+<span class="c1"># stack converts the list of items into tensor</span>
+
+<span class="k">def</span> <span class="nf">validate_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="n">accs</span> <span class="o">=</span> <span class="p">[</span><span class="n">batch_accuracy</span><span class="p">(</span><span class="n">model</span><span class="p">(</span><span class="n">xb</span><span class="p">),</span> <span class="n">yb</span><span class="p">)</span> <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">valid_dl</span><span class="p">]</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">accs</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">item</span><span class="p">(),</span> <span class="mi">4</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">validate_epoch</span><span class="p">(</span><span class="n">linear1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0.407</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+This is a starting point, let's train for one epoch and see if accuracy improves.</p>
+<p>as a reminder, the linear1 function was... 
+- <code>def linear1(xb): return xb@weights + bias</code>
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">lr</span> <span class="o">=</span> <span class="mf">1.</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">weights</span><span class="p">,</span> <span class="n">bias</span>
+<span class="n">train_epoch</span><span class="p">(</span><span class="n">linear1</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+<span class="n">validate_epoch</span><span class="p">(</span><span class="n">linear1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0.6932</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">20</span><span class="p">):</span>
+    <span class="n">train_epoch</span><span class="p">(</span><span class="n">linear1</span><span class="p">,</span> <span class="n">lr</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">validate_epoch</span><span class="p">(</span><span class="n">linear1</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>0.8242 0.9042 0.9355 0.9501 0.9555 0.9614 0.9638 0.9677 0.9736 0.9751 0.9751 0.976 0.977 0.9775 0.9775 0.978 0.9785 0.979 0.9795 0.979 </code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Accuracy has indeed improved! We have built an SGD optimizer that has reached about 97% accuracy.
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="refactor-and-clean-up">Refactor and clean up</h3>
+<ul>
+<li>create an optimiser </li>
+<li>use PyTorch modules and functions where available<ul>
+<li>like <code>nn.Linear</code></li>
+<li>which "Applies a linear transformation to the incoming data: $y = xA^T + b$"
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="err">?</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># remove our linear function</span>
+<span class="c1"># in place for torch module</span>
+
+<span class="c1"># creates a matrix of size 28*28</span>
+<span class="c1"># with bias of 1</span>
+
+<span class="n">linear_model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># check model params</span>
+
+<span class="n">w</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">linear_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">()</span>
+
+<span class="n">w</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">b</span><span class="o">.</span><span class="n">shape</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>(torch.Size([1, 784]), torch.Size([1]))</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Create a basic optimiser</p>
+<ul>
+<li>pass in params to optimise and lr</li>
+<li>store these away</li>
+<li>step though each param (weights and bias) and for each, update with gradient * lr</li>
+<li>zero the gradients in prep for the next step
+</div>
+</div></li>
+</ul>
+</div>
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">BasicOptim</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">params</span><span class="p">,</span> <span class="n">lr</span><span class="p">):</span> 
+        <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">params</span><span class="p">),</span> <span class="n">lr</span>
+
+    <span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">:</span> 
+            <span class="n">p</span><span class="o">.</span><span class="n">data</span> <span class="o">-=</span> <span class="n">p</span><span class="o">.</span><span class="n">grad</span><span class="o">.</span><span class="n">data</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">lr</span>
+
+    <span class="k">def</span> <span class="nf">zero_grad</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">params</span><span class="p">:</span> 
+            <span class="n">p</span><span class="o">.</span><span class="n">grad</span> <span class="o">=</span> <span class="kc">None</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># create an optimiser by passing in parameters from model</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">BasicOptim</span><span class="p">(</span><span class="n">linear_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># simplify the training loop</span>
+<span class="k">def</span> <span class="nf">train_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">xb</span><span class="p">,</span> <span class="n">yb</span> <span class="ow">in</span> <span class="n">dl</span><span class="p">:</span>
+        <span class="n">calc_grad</span><span class="p">(</span><span class="n">xb</span><span class="p">,</span> <span class="n">yb</span><span class="p">,</span> <span class="n">model</span><span class="p">)</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+        <span class="n">opt</span><span class="o">.</span><span class="n">zero_grad</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">validate_epoch</span><span class="p">(</span><span class="n">linear_model</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>0.5075</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Now create a function <code>train_model</code> that will call <code>train_epoch</code> on our model for the specified number of epochs
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+</div>
+</div>
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">train_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">epochs</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">epochs</span><span class="p">):</span>
+        <span class="n">train_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">validate_epoch</span><span class="p">(</span><span class="n">model</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">train_model</span><span class="p">(</span><span class="n">linear_model</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>0.4932 0.7876 0.852 0.916 0.9345 0.9497 0.957 0.9638 0.9658 0.9677 0.9697 0.9721 0.9731 0.9751 0.9755 0.9765 0.9775 0.9775 0.978 0.9785 </code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The results are very similar to what we have seen before.</p>
+</div>
+</div>
+<p>Fastai provides <code>SGD</code> that we can use instead of writing our own, again the results are very similar.
+</div>
+</div></p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">linear_model</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">opt</span> <span class="o">=</span> <span class="n">SGD</span><span class="p">(</span><span class="n">linear_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">(),</span> <span class="n">lr</span><span class="p">)</span>
+<span class="n">train_model</span><span class="p">(</span><span class="n">linear_model</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>
+<code>0.4932 0.9091 0.8056 0.9043 0.9316 0.9443 0.9546 0.9619 0.9648 0.9668 0.9692 0.9707 0.9731 0.9746 0.976 0.976 0.9775 0.9775 0.9785 0.979 </code>
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Let's refactor some more, using some fastai classes. The <code>Learner</code> implements everything we have implemented manually.
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># Previously we used DataLoader not DataLoaders</span>
+
+<span class="n">dls</span> <span class="o">=</span> <span class="n">DataLoaders</span><span class="p">(</span><span class="n">dl</span><span class="p">,</span> <span class="n">valid_dl</span><span class="p">)</span>
+
+<span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span><span class="mi">1</span><span class="p">),</span> <span class="n">opt_func</span><span class="o">=</span><span class="n">SGD</span><span class="p">,</span>
+                <span class="n">loss_func</span><span class="o">=</span><span class="n">mnist_loss</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">batch_accuracy</span><span class="p">)</span>
+<span class="n">learn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>batch_accuracy</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.480832</td>
+      <td>0.461122</td>
+      <td>0.843474</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.466804</td>
+      <td>0.441299</td>
+      <td>0.908734</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.450758</td>
+      <td>0.422136</td>
+      <td>0.934249</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.433590</td>
+      <td>0.403750</td>
+      <td>0.943572</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.416052</td>
+      <td>0.386223</td>
+      <td>0.949460</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0.398675</td>
+      <td>0.369610</td>
+      <td>0.952404</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0.381799</td>
+      <td>0.353943</td>
+      <td>0.956820</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>0.365630</td>
+      <td>0.339228</td>
+      <td>0.957311</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0.350289</td>
+      <td>0.325455</td>
+      <td>0.959764</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>0.335835</td>
+      <td>0.312599</td>
+      <td>0.960255</td>
+      <td>00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+The results again are very similar, but with some additional functionality (like printing out results in a pretty table!
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="non-linearity">Non-Linearity</h3>
+</div>
+</div>
+<p>To create a simple neural net, using a linear function like we did before is not enough. We need to add in a non-linearity between two linear functions. </p>
+<p>This is the basic definition for a neural net..</p>
+<p>The <em>universal approximation theorem</em> says, that given any arbitrarily complex continuous function, we can approximate it with a neural network. I found <a href="https://www.youtube.com/watch?v=Ijqkc7OLenI&amp;ab_channel=MichaelNielsen">this</a> useful for visualising how this works. This is what we are trying to do.</p>
+<p>In our <code>basic_net</code>, each line represents a <em>layer</em> in our network, the first and 3rd layers are known as <em>linear layers</em> the second, as a <em>nonlinearity</em> or an <em>activation.</em></p>
+<p><code>res.max(tensor(0.0))</code> takes the result of our linear function and sets any negative value to 0.0 while maintaining any positive values.
+</div>
+</div></p>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">basic_net</span><span class="p">(</span><span class="n">xb</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">xb</span><span class="nd">@w1</span> <span class="o">+</span> <span class="n">b1</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">tensor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">))</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">res</span><span class="nd">@w2</span> <span class="o">+</span> <span class="n">b2</span>
+    <span class="k">return</span> <span class="n">res</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">plot_function</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+Like we have seen previously..
+- <code>w1</code> and <code>w2</code> are weight tensors
+- <code>b1</code> and <code>b2</code> are bias tensors</p>
+<p>we can initialise these the same as we have done previously..</p>
+<p><code>w1</code> has 30 output activations, so in order for <code>w2</code> to match it require 30 input activations. 
+</div>
+</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">w1</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">((</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span><span class="mi">30</span><span class="p">))</span>
+<span class="n">b1</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">w2</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">((</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">b2</span> <span class="o">=</span> <span class="n">init_params</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
+We can simplify further using PyTorch...</p>
+<p>What we did in <code>basic_net</code> was called function composition, where we passed the results of one function into another function and then into another function. This is what neural nets are doing with linear layers and activation functions. <code>nn.Sequential()</code> will do this for us...
+</div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">simple_net</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">28</span><span class="o">*</span><span class="mi">28</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="c1"># 28*28 in, 30 out</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span>
+    <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>       <span class="c1"># 30 in 1 out</span>
+<span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">simple_net</span><span class="p">,</span> <span class="n">opt_func</span><span class="o">=</span><span class="n">SGD</span><span class="p">,</span>
+                <span class="n">loss_func</span><span class="o">=</span><span class="n">mnist_loss</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">batch_accuracy</span><span class="p">)</span>
+
+<span class="n">learn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span><span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>batch_accuracy</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.301185</td>
+      <td>0.414520</td>
+      <td>0.506379</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.142869</td>
+      <td>0.223012</td>
+      <td>0.814033</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.079959</td>
+      <td>0.114103</td>
+      <td>0.916094</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.053115</td>
+      <td>0.077652</td>
+      <td>0.939156</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.040578</td>
+      <td>0.060868</td>
+      <td>0.953876</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0.034118</td>
+      <td>0.051373</td>
+      <td>0.963690</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0.030368</td>
+      <td>0.045362</td>
+      <td>0.965653</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>0.027905</td>
+      <td>0.041246</td>
+      <td>0.965162</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0.026117</td>
+      <td>0.038246</td>
+      <td>0.968597</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>0.024726</td>
+      <td>0.035950</td>
+      <td>0.969087</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>0.023596</td>
+      <td>0.034124</td>
+      <td>0.971050</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>0.022651</td>
+      <td>0.032629</td>
+      <td>0.972031</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>0.021847</td>
+      <td>0.031376</td>
+      <td>0.973503</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>0.021151</td>
+      <td>0.030301</td>
+      <td>0.974485</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>0.020542</td>
+      <td>0.029363</td>
+      <td>0.974485</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>0.020002</td>
+      <td>0.028535</td>
+      <td>0.975957</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>0.019519</td>
+      <td>0.027797</td>
+      <td>0.976448</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>0.019083</td>
+      <td>0.027134</td>
+      <td>0.976938</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>0.018687</td>
+      <td>0.026535</td>
+      <td>0.977920</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>0.018325</td>
+      <td>0.025991</td>
+      <td>0.978901</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>20</td>
+      <td>0.017992</td>
+      <td>0.025495</td>
+      <td>0.978901</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>21</td>
+      <td>0.017684</td>
+      <td>0.025040</td>
+      <td>0.978901</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>22</td>
+      <td>0.017398</td>
+      <td>0.024621</td>
+      <td>0.979392</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>23</td>
+      <td>0.017131</td>
+      <td>0.024233</td>
+      <td>0.979392</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>24</td>
+      <td>0.016881</td>
+      <td>0.023874</td>
+      <td>0.980373</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>25</td>
+      <td>0.016645</td>
+      <td>0.023541</td>
+      <td>0.980373</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>26</td>
+      <td>0.016424</td>
+      <td>0.023232</td>
+      <td>0.980373</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>27</td>
+      <td>0.016214</td>
+      <td>0.022943</td>
+      <td>0.980864</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>28</td>
+      <td>0.016015</td>
+      <td>0.022673</td>
+      <td>0.980864</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>29</td>
+      <td>0.015827</td>
+      <td>0.022421</td>
+      <td>0.981354</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>30</td>
+      <td>0.015648</td>
+      <td>0.022185</td>
+      <td>0.981845</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>31</td>
+      <td>0.015476</td>
+      <td>0.021963</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>32</td>
+      <td>0.015313</td>
+      <td>0.021756</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>0.015156</td>
+      <td>0.021561</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>34</td>
+      <td>0.015006</td>
+      <td>0.021378</td>
+      <td>0.982826</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>35</td>
+      <td>0.014863</td>
+      <td>0.021204</td>
+      <td>0.982826</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>36</td>
+      <td>0.014725</td>
+      <td>0.021041</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>37</td>
+      <td>0.014592</td>
+      <td>0.020886</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>38</td>
+      <td>0.014464</td>
+      <td>0.020740</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+    <tr>
+      <td>39</td>
+      <td>0.014341</td>
+      <td>0.020601</td>
+      <td>0.982336</td>
+      <td>00:00</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># this is what our model now looks like</span>
+<span class="n">learn</span><span class="o">.</span><span class="n">model</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>Sequential(
+  (0): Linear(in_features=784, out_features=30, bias=True)
+  (1): ReLU()
+  (2): Linear(in_features=30, out_features=1, bias=True)
+)</code>
+</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># plot the loss</span>
+<span class="n">learn</span><span class="o">.</span><span class="n">recorder</span><span class="o">.</span><span class="n">plot_loss</span><span class="p">()</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># learn.recorder.values hold the table values above</span>
+<span class="c1"># lets plot the accuracy</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">L</span><span class="p">(</span><span class="n">learn</span><span class="o">.</span><span class="n">recorder</span><span class="o">.</span><span class="n">values</span><span class="p">)</span><span class="o">.</span><span class="n">itemgot</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="looking-inside">Looking inside...</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="c1"># let&#39;s visualise some of the parameters</span>
+
+<span class="c1"># 1. grab your model</span>
+<span class="n">m</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">model</span> <span class="c1"># (0): Linear(in_features=784, out_features=30, bias=True)</span>
+
+<span class="c1"># 2. look inside and grab the weights and biases</span>
+<span class="n">w</span><span class="p">,</span><span class="n">b</span> <span class="o">=</span> <span class="n">m</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span> <span class="n">parameters</span><span class="p">()</span>
+
+<span class="c1"># 3. grab first (or any) row, reshape, and plot</span>
+<span class="n">show_image</span><span class="p">(</span><span class="n">w</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">28</span><span class="p">,</span><span class="mi">28</span><span class="p">),</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>
+<code>&lt;AxesSubplot:&gt;</code>
+</pre>
+</div>
+
+</div>
+
+<div class="output_area" markdown="1">
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="fastai-in-full">fastai in full</h3>
+<p></div>
+</div></p>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span><span class="o">/</span><span class="s1">&#39;datasets/fastai/mnist_sample&#39;</span>
+</code></pre></div>
+
+
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="codehilite"><pre><span></span><code><span class="n">dls</span> <span class="o">=</span> <span class="n">ImageDataLoaders</span><span class="o">.</span><span class="n">from_folder</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<span class="n">learn</span> <span class="o">=</span> <span class="n">cnn_learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">resnet18</span><span class="p">,</span> <span class="n">pretrained</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                   <span class="n">loss_func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
+
+<span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+</code></pre></div>
+
+
+</div>
+
+<div class="output_wrapper" markdown="1">
+<div class="output" markdown="1">
+
+
+<div class="output_area" markdown="1">
+
+<div class="output_html rendered_html output_subarea ">
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>accuracy</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.086805</td>
+      <td>0.025215</td>
+      <td>0.994603</td>
+      <td>00:11</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="cell border-box-sizing text_cell rendered">
+<p><div class="inner_cell" markdown="1">
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="summary">Summary</h3>
+<p>We have gone over creating and training a neural network from scratch using the simple example of a digit classifier. The key idea for the last few notebooks was to start with planning out the problem and identifying a way to solve it using a simple common sense solution - the pixel similarity model. </p>
+<p>This proved successful but it was not really robust beyond the straightforward example we chose - identifying 3s and 7s. We then implemented a more complex solution that could be applied to more complicated problems. </p>
+</div>
+</div>
+<p>After each step or concept had been implemented manually, we refactored the code to use convenient PyTorch functions and modules, eventually ending up with using fastai's implementation which abstracts away from all of the underlying heavy lifting. This is done for convenience and in my own opinion, to help lower the entry barrier into deep learning. </p>
+<p>Ultimately I believe it is fundamentally important to understand the concepts and implementation if your goal (and this is my goal) is to implement deep learning solutions to solve business problems within your industry.
+</div>
+</div></p>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../lesson%2003%20pt%202/" title="Lesson 03 pt 2" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Lesson 03 pt 2
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            Copyright 2020 Devin de Araujo
+          </div>
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+  <div class="md-footer-social">
+    
+      
+      
+        
+        
+      
+      <a href="https://www.linkedin.com/in/devindearaujo/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+      </a>
+    
+  </div>
+
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.92ffa368.min.js"></script>
+      <script src="../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: [],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>
