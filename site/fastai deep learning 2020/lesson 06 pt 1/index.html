@@ -9,7 +9,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2006/">
+        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2006%20pt%201/">
       
       
         <meta name="author" content="Devin de Araujo <devindearaujo@gmail.com>">
@@ -19,7 +19,7 @@
     
     
       
-        <title>Lesson 06 - devin de araujo</title>
+        <title>Lesson 06 pt 1 - devin de araujo</title>
       
     
     
@@ -95,7 +95,7 @@
           </span>
           <span class="md-header-nav__topic md-ellipsis">
             
-              Lesson 06
+              Lesson 06 pt 1
             
           </span>
         </div>
@@ -314,14 +314,14 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Lesson 06
+        Lesson 06 pt 1
         <span class="md-nav__icon md-icon">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
         </span>
       </label>
     
-    <a href="./" title="Lesson 06" class="md-nav__link md-nav__link--active">
-      Lesson 06
+    <a href="./" title="Lesson 06 pt 1" class="md-nav__link md-nav__link--active">
+      Lesson 06 pt 1
     </a>
     
       
@@ -340,8 +340,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dayaset-pascal" class="md-nav__link">
-    Dayaset: PASCAL
+  <a href="#dataset-pascal" class="md-nav__link">
+    Dataset: PASCAL
   </a>
   
 </li>
@@ -381,6 +381,42 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2006%20pt%202/" title="Lesson 06 pt 2" class="md-nav__link">
+      Lesson 06 pt 2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2007/" title="Lesson 07" class="md-nav__link">
+      Lesson 07
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../lesson%2008/" title="Lesson 08" class="md-nav__link">
+      Lesson 08
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -412,8 +448,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#dayaset-pascal" class="md-nav__link">
-    Dayaset: PASCAL
+  <a href="#dataset-pascal" class="md-nav__link">
+    Dataset: PASCAL
   </a>
   
 </li>
@@ -458,7 +494,7 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 06.ipynb" title="Edit this page" class="md-content__button md-icon">
+                  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 06 pt 1.ipynb" title="Edit this page" class="md-content__button md-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
                   </a>
                 
@@ -501,10 +537,10 @@
 <h1 id="lesson-6-multi-label-classification">Lesson 6: Multi-Label Classification</h1>
 <p><strong>06-10-2020</strong></p>
 <p>This notebook will go over <em>some</em> of the practical material discussed in <a href="https://course.fast.ai/videos/?lesson=6">lesson 6</a> of the fastai 2020 course. Lesson 5 was an extension on the pet classifier we built as well as a discussion on data ethics.</p>
-<h3 id="dayaset-pascal">Dayaset: PASCAL</h3>
-<p>We will build most of the pipeline from scratch???
 </div>
-</div></p>
+</div>
+
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -522,8 +558,9 @@
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Our data set contains images along with a csv containing the labels. There are multiple labels per image, these are space sparated.
+<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<h3 id="dataset-pascal">Dataset: PASCAL</h3>
+<p>Our data set contains images along with a csv containing the labels. There are multiple labels per image, these are space sparated.
 </div>
 </div></p>
 </div>
@@ -636,15 +673,19 @@ Let's create a dataset from scratch using fastais suggested methods.</p>
 <p><div class="inner_cell" markdown="1">
 <div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="datablock">DataBlock</h3>
-<p>We need to tell our datablock 
-- where to get the data from
-- where to get the labels from
-- what kind of data we are working with
-    - this is an image classification problem so images and labels
-    - <code>MultiCategoryBlock</code> expects a list of category labels
-- how to split our data
+<p>We need to tell our datablock </p>
+<ul>
+<li>where to get the data from</li>
+<li>where to get the labels from</li>
+<li>what kind of data we are working with<ul>
+<li>this is an image classification problem so images and labels</li>
+<li><code>MultiCategoryBlock</code> expects a list of category labels</li>
+</ul>
+</li>
+<li>how to split our data
 </div>
-</div></p>
+</div></li>
+</ul>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -876,18 +917,20 @@ Let's create a dataset from scratch using fastais suggested methods.</p>
 <div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
 <h3 id="binary-cross-entropy-loss">Binary cross entropy loss</h3>
 <ul>
-<li>Binary Cross entropy loss is used for classificaiton problems. For multi-label classification, we do not need the sum of different classes add up to one so we will not need <code>softmax</code> here. </li>
-<li>We might see multiple object that we are confident appear in an image, so using softmax to restrict this will not be a good idea for this proble. </li>
+<li>Binary Cross entropy loss is used for classificaiton problems. For multi-label classification, we do not need the sum of different classes to add up to one so we will not need <code>softmax</code> here. </li>
+<li>WHy? Because we might see multiple objects that we are confident appear in an image, so using softmax to restrict this is not a good idea for this problem. </li>
 <li>We may also want the sum to be less than one if the model is not confident that <em>any</em> of the categories appear in the image.</li>
 <li>Each activation will be compared to each target for each column, so we don't have to do anything to make this function work for multiple columns.</li>
 </ul>
-<p>Explainations
-- https://www.youtube.com/watch?v=gIx974WtVb4
-- https://www.youtube.com/watch?v=QBbC3Cjsnjg
-</div>
-</div></p>
+<p>Some explainations I found useful...</p>
 </div>
 </div>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=gIx974WtVb4">here</a></li>
+<li>and <a href="https://www.youtube.com/watch?v=QBbC3Cjsnjg">here</a>
+</div>
+</div></li>
+</ul>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
@@ -933,17 +976,18 @@ Let's create a dataset from scratch using fastais suggested methods.</p>
 <div class="cell border-box-sizing text_cell rendered">
 <p><div class="inner_cell" markdown="1">
 <div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<strong>Why this shape?</strong>
-- batch size = 64
-- number of categories = 20
+<strong>Why this shape?</strong></p>
+<ul>
+<li>batch size = 64</li>
+<li>number of categories = 20
 </div>
-</div></p>
+</div></li>
+</ul>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
+<div class="cell border-box-sizing code_cell rendered"></div>
+</div>
 <div class="input">
 
-</div>
-</div>
 <div class="codehilite"><pre><span></span><code><span class="c1"># check the 20 activations</span>
 <span class="c1"># this is just to see what they look like</span>
 <span class="n">activs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -1020,10 +1064,10 @@ These activations are not between 0 and 1. We need them to represent probabiliti
 <p>So it will only make sense when there is a single maximum we are looking for.</p>
 </li>
 <li>
-<p><code>accuracy_multi</code></p>
+<p><code>accuracy_multi</code> will be used instead</p>
 </li>
 <li>We need something that works for multiple labels. To do this we will compare the final layer activations to a threshold (0.5 by default). Then we say, if the sigmoid is grater than the threshold, assume that category is there, else if it is less, then it is not there. We then compare this list of trues and falses to the target, then take the mean.</li>
-<li>We might not want to use 0.5 for our threshold. We can do this using [partials] when we create our learner by passing in the required argument <code>thresh=0.2</code>.  </li>
+<li>We might not want to use 0.5 for our threshold. We can do this using <em>partials</em> when we create our learner by passing in the required argument <code>thresh=0.2</code>.  </li>
 </ul>
 </div>
 </div>
@@ -1255,7 +1299,7 @@ Inspect the data, there are 24 directories that correspond to 24 different peopl
 <div class="cell border-box-sizing text_cell rendered">
 <p><div class="inner_cell" markdown="1">
 <div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-each directory contains image files and pose file wich show the location of the centre of the head. We can use a function that will return the cooordinates of the head centre point.</p>
+each directory contains image files and a pose file wich shows the location of the centre of the head. We can use a function that will return the cooordinates of the head centre point.</p>
 <p><code>get_image_files</code> will recursively get all image files</p>
 <p><code>img2pose</code> will convert an image filename to its associated pose file
 </div>
@@ -1490,15 +1534,19 @@ each directory contains image files and pose file wich show the location of the 
 <div class="cell border-box-sizing text_cell rendered">
 <p><div class="inner_cell" markdown="1">
 <div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Understanding <code>torch.Size([64, 3, 240, 320])</code>
-- mini batch is 64 items
-- there are 3 channels R,G,B
-- image size is 240x320</p>
-<p><code>torch.Size([64, 1, 2])</code>
-- 64 items in mini batch
-- each item is one point, represented by 2 coordinates (1,2)
+Understanding <code>torch.Size([64, 3, 240, 320])</code></p>
+<ul>
+<li>mini batch is 64 items</li>
+<li>there are 3 channels R,G,B</li>
+<li>image size is 240x320</li>
+</ul>
+<p><code>torch.Size([64, 1, 2])</code></p>
+<ul>
+<li>64 items in mini batch</li>
+<li>each item is one point, represented by 2 coordinates (1,2)
 </div>
-</div></p>
+</div></li>
+</ul>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <p><div class="inner_cell" markdown="1">
@@ -1705,7 +1753,7 @@ MSE will be suitable for this problem since we are trying to predict something a
 <div class="cell border-box-sizing text_cell rendered">
 <p><div class="inner_cell" markdown="1">
 <div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We got a loss of . This corresponds to an average coordinate prediction error of...
+We got a loss of 0.000083 This corresponds to an average coordinate prediction error of...
 </div>
 </div></p>
 </div>
@@ -1816,6 +1864,20 @@ We got a loss of . This corresponds to an average coordinate prediction error of
             </div>
           </a>
         
+        
+          <a href="../lesson%2006%20pt%202/" title="Lesson 06 pt 2" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Lesson 06 pt 2
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
         
       </nav>
     </div>
