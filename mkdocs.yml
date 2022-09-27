@@ -18,8 +18,11 @@ markdown_extensions:
 
 
 extra_css:
-  - stylesheets/extra.css
+  - stylesheets/extra.cs
 
+extra_javascript:
+  - https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML
+  - mathjaxhelper.js
 
 plugins:
   - search
