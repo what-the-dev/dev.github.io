@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -9,13 +7,13 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2003%20pt%201/">
-      
-      
         <meta name="author" content="Devin de Araujo <devindearaujo@gmail.com>">
       
-      <link rel="shortcut icon" href="../../images/dda.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
+      
+        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2003%20pt%201/">
+      
+      <link rel="icon" href="../../images/dda.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
@@ -23,24 +21,28 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.b5d04df8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9ab2c1f8.min.css">
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
       
+      
+
+    
+    
+    
       
         
         
-        <meta name="theme-color" content="">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
-    
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
@@ -49,8 +51,11 @@
     
       <link rel="stylesheet" href="../../css/pandas-dataframe.css">
     
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -59,8 +64,11 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="pink">
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,47 +85,57 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://what-the-dev.github.io/dev.github.io/" title="devin de araujo" class="md-header-nav__button md-logo" aria-label="devin de araujo">
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="devin de araujo" class="md-header__button md-logo" aria-label="devin de araujo" data-md-component="logo">
       
   <img src="../../images/dda.svg" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             devin de araujo
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Lesson 03 pt 1
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -133,12 +151,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -147,25 +164,30 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
+      
         
-      
-      
+          
         
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://what-the-dev.github.io/dev.github.io/" title="devin de araujo" class="md-nav__button md-logo" aria-label="devin de araujo">
+    <a href="../.." title="devin de araujo" class="md-nav__button md-logo" aria-label="devin de araujo" data-md-component="logo">
       
   <img src="../../images/dda.svg" alt="logo">
 
@@ -174,11 +196,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source">
+      <a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -192,12 +213,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
 
     
       
@@ -205,103 +229,187 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
-    
-    <label class="md-nav__link" for="nav-2">
-      Fastai deep learning 2020
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Fastai deep learning 2020" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Fastai deep learning 2020
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Deep learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deep learning" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Deep learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2001/" title="Lesson 01" class="md-nav__link">
-      Lesson 01
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2002/" title="Lesson 02" class="md-nav__link">
-      Lesson 02
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/" class="md-nav__link">
+        About
+      </a>
+    </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/01%20Topic%20Modeling/" class="md-nav__link">
+        01 Topic Modeling
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/02%20Regression%20Analysis/" class="md-nav__link">
+        02 Regression Analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
       
+      
+      
+
+  
+  
     
+  
+  
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Fastai deep learning 2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fastai deep learning 2020" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Fastai deep learning 2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2001/" class="md-nav__link">
+        Lesson 01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2002/" class="md-nav__link">
+        Lesson 02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lesson 03 pt 1
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Lesson 03 pt 1
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Lesson 03 pt 1" class="md-nav__link md-nav__link--active">
-      Lesson 03 pt 1
-    </a>
-    
+      </a>
       
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#primer" class="md-nav__link">
@@ -333,85 +441,100 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
-        
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2003%20pt%202/" class="md-nav__link">
+        Lesson 03 pt 2
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2004/" class="md-nav__link">
+        Lesson 04
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2006%20pt%201/" class="md-nav__link">
+        Lesson 06 pt 1
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../lesson%2003%20pt%202/" title="Lesson 03 pt 2" class="md-nav__link">
-      Lesson 03 pt 2
-    </a>
-  </li>
-
-        
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2006%20pt%202/" class="md-nav__link">
+        Lesson 06 pt 2
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2007/" class="md-nav__link">
+        Lesson 07
+      </a>
+    </li>
+  
+
+            
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2008/" class="md-nav__link">
+        Lesson 08
+      </a>
+    </li>
+  
 
-
-  <li class="md-nav__item">
-    <a href="../lesson%2004/" title="Lesson 04" class="md-nav__link">
-      Lesson 04
-    </a>
-  </li>
-
-        
+            
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2006%20pt%201/" title="Lesson 06 pt 1" class="md-nav__link">
-      Lesson 06 pt 1
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2006%20pt%202/" title="Lesson 06 pt 2" class="md-nav__link">
-      Lesson 06 pt 2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2007/" title="Lesson 07" class="md-nav__link">
-      Lesson 07
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2008/" title="Lesson 08" class="md-nav__link">
-      Lesson 08
-    </a>
-  </li>
-
-        
-      </ul>
-    </nav>
-  </li>
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -421,23 +544,24 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#primer" class="md-nav__link">
@@ -474,27 +598,27 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 03 pt 1.ipynb" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
                   
-                
-                
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 03 pt 1.ipynb" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <script>
 (function() {
   function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
-    var scriptElement = document.createElement('script');
+    var jupyterWidgetsScript = document.createElement('script');
     var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
     var widgetState;
 
@@ -507,8 +631,10 @@
       }
     } catch(e) {}
 
-    scriptElement.src = widgetRendererSrc;
-    document.body.appendChild(scriptElement);
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
   }
 
   document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
@@ -516,98 +642,95 @@
 </script>
 
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="lesson-3-under-the-hood-training-a-digit-classifier">Lesson 3: Under the Hood: Training a Digit Classifier</h1>
 <p><strong>20-09-2020</strong></p>
-<p>This notebook will go over <em>some</em> of the practical material discussed in <a href="https://course.fast.ai/videos/?lesson=1">lesson 3</a> of the fastai 2020 course, namely, some different ways of training a digit classifier using the MNIST data set.
+<p>This notebook will go over <em>some</em> of the practical material discussed in <a href="https://course.fast.ai/videos/?lesson=1">lesson 3</a> of the fastai 2020 course, namely, some different ways of training a digit classifier using the MNIST data set.</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="primer">Primer</h2>
 <ul>
 <li>load in some data</li>
-<li>visualise it
-</div>
-</div></li>
+<li>visualise it</li>
 </ul>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastai.vision.all</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 </code></pre></div>
 
 
-</div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-For this model we are going to create a digit classifier that will be able to classify an image as a 3 or a 7. Fastai has a sample of the MNIST dataset that we will be using.</p>
-<p>First, let's load the data and check that there are indeed, 3's an 7's in one of the folders. The folder layout is fairly typical, separate training and validation sets.
 </div>
-</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For this model we are going to create a digit classifier that will be able to classify an image as a 3 or a 7. Fastai has a sample of the MNIST dataset that we will be using.</p>
+<p>First, let's load the data and check that there are indeed, 3's an 7's in one of the folders. The folder layout is fairly typical, separate training and validation sets.</p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">MNIST_SAMPLE</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#2) [Path(&#39;/storage/data/mnist_sample/train/7&#39;),Path(&#39;/storage/data/mnist_sample/train/3&#39;)]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="visualising-data">Visualising Data</h3>
 <p>There are a number of ways we can check our data to get a better understanding of how it is structured and how it looks</p>
 <ol>
 <li>Take a look inside one of the folders and check file names</li>
 <li>Use PIL to open one of the images</li>
 <li>Use PyTorch/Numpy to check the tensor/array values</li>
-<li>Get creative
-</div>
-</div></li>
+<li>Get creative</li>
 </ol>
+</div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 1 - check file names</span>
 <span class="n">threes</span> <span class="o">=</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;train&#39;</span><span class="o">/</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span><span class="o">.</span><span class="n">sorted</span><span class="p">()</span>
@@ -616,28 +739,23 @@ For this model we are going to create a digit classifier that will be able to cl
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#6131) [Path(&#39;/storage/data/mnist_sample/train/3/10.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10000.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10011.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10031.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10034.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10042.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10052.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/1007.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10074.png&#39;),Path(&#39;/storage/data/mnist_sample/train/3/10091.png&#39;)...]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 2 - use PIL to open image</span>
 <span class="n">im3_path</span> <span class="o">=</span> <span class="n">threes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -646,45 +764,34 @@ For this model we are going to create a digit classifier that will be able to cl
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_png output_subarea output_execute_result">
 <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAA9ElEQVR4nM3Or0sDcRjH8c/pgrfBVBjCgibThiKIyTWbWF1bORhGwxARxH/AbtW0JoIGwzXRYhJhtuFY2q1ocLgbe3sGReTuuWbwkx6+r+/zQ/pncX6q+YOldSe6nG3dn8U/rTQ70L8FCGJUewvxl7NTmezNb8xIkvKugr1HSeMP6SrWOVkoTEuSyh0Gm2n3hQyObMnXnxkempRrvgD+gokzwxFAr7U7YXHZ8x4A/Dl7rbu6D2yl3etcw/F3nZgfRVI7rXM7hMUUqzzBec427x26rkmlkzEEa4nnRqnSOH2F0UUx0ePzlbuqMXAHgN6GY9if5xP8dmtHFfwjuQAAAABJRU5ErkJggg==
 "
 >
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 3 - use PyTorch to view tensor values</span>
 <span class="n">tensor</span><span class="p">(</span><span class="n">im3</span><span class="p">)[</span><span class="mi">4</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span><span class="mi">4</span><span class="p">:</span><span class="mi">10</span><span class="p">]</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>tensor([[  0,   0,   0,   0,   0,   0],
@@ -695,14 +802,13 @@ For this model we are going to create a digit classifier that will be able to cl
         [  0,   3,  20,  20,  15,   0]], dtype=torch.uint8)</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 4 - Getting creative with Pandas</span>
 <span class="n">im3_t</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">(</span><span class="n">im3</span><span class="p">)</span>
@@ -711,16 +817,13 @@ For this model we are going to create a digit classifier that will be able to cl
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea output_execute_result">
-<style  type="text/css" >
+<style type="text/css">
 #T_71814984_fd78_11ea_966e_0242ac110002row0_col0,#T_71814984_fd78_11ea_966e_0242ac110002row0_col1,#T_71814984_fd78_11ea_966e_0242ac110002row0_col2,#T_71814984_fd78_11ea_966e_0242ac110002row0_col3,#T_71814984_fd78_11ea_966e_0242ac110002row0_col4,#T_71814984_fd78_11ea_966e_0242ac110002row0_col5,#T_71814984_fd78_11ea_966e_0242ac110002row0_col6,#T_71814984_fd78_11ea_966e_0242ac110002row0_col7,#T_71814984_fd78_11ea_966e_0242ac110002row0_col8,#T_71814984_fd78_11ea_966e_0242ac110002row0_col9,#T_71814984_fd78_11ea_966e_0242ac110002row0_col10,#T_71814984_fd78_11ea_966e_0242ac110002row0_col11,#T_71814984_fd78_11ea_966e_0242ac110002row0_col12,#T_71814984_fd78_11ea_966e_0242ac110002row0_col13,#T_71814984_fd78_11ea_966e_0242ac110002row0_col14,#T_71814984_fd78_11ea_966e_0242ac110002row0_col15,#T_71814984_fd78_11ea_966e_0242ac110002row0_col16,#T_71814984_fd78_11ea_966e_0242ac110002row0_col17,#T_71814984_fd78_11ea_966e_0242ac110002row1_col0,#T_71814984_fd78_11ea_966e_0242ac110002row1_col1,#T_71814984_fd78_11ea_966e_0242ac110002row1_col2,#T_71814984_fd78_11ea_966e_0242ac110002row1_col3,#T_71814984_fd78_11ea_966e_0242ac110002row1_col4,#T_71814984_fd78_11ea_966e_0242ac110002row1_col15,#T_71814984_fd78_11ea_966e_0242ac110002row1_col16,#T_71814984_fd78_11ea_966e_0242ac110002row1_col17,#T_71814984_fd78_11ea_966e_0242ac110002row2_col0,#T_71814984_fd78_11ea_966e_0242ac110002row2_col1,#T_71814984_fd78_11ea_966e_0242ac110002row2_col2,#T_71814984_fd78_11ea_966e_0242ac110002row2_col15,#T_71814984_fd78_11ea_966e_0242ac110002row2_col16,#T_71814984_fd78_11ea_966e_0242ac110002row2_col17,#T_71814984_fd78_11ea_966e_0242ac110002row3_col0,#T_71814984_fd78_11ea_966e_0242ac110002row3_col15,#T_71814984_fd78_11ea_966e_0242ac110002row3_col16,#T_71814984_fd78_11ea_966e_0242ac110002row3_col17,#T_71814984_fd78_11ea_966e_0242ac110002row4_col0,#T_71814984_fd78_11ea_966e_0242ac110002row4_col6,#T_71814984_fd78_11ea_966e_0242ac110002row4_col7,#T_71814984_fd78_11ea_966e_0242ac110002row4_col8,#T_71814984_fd78_11ea_966e_0242ac110002row4_col9,#T_71814984_fd78_11ea_966e_0242ac110002row4_col10,#T_71814984_fd78_11ea_966e_0242ac110002row4_col15,#T_71814984_fd78_11ea_966e_0242ac110002row4_col16,#T_71814984_fd78_11ea_966e_0242ac110002row4_col17,#T_71814984_fd78_11ea_966e_0242ac110002row5_col0,#T_71814984_fd78_11ea_966e_0242ac110002row5_col5,#T_71814984_fd78_11ea_966e_0242ac110002row5_col6,#T_71814984_fd78_11ea_966e_0242ac110002row5_col7,#T_71814984_fd78_11ea_966e_0242ac110002row5_col8,#T_71814984_fd78_11ea_966e_0242ac110002row5_col9,#T_71814984_fd78_11ea_966e_0242ac110002row5_col15,#T_71814984_fd78_11ea_966e_0242ac110002row5_col16,#T_71814984_fd78_11ea_966e_0242ac110002row5_col17,#T_71814984_fd78_11ea_966e_0242ac110002row6_col0,#T_71814984_fd78_11ea_966e_0242ac110002row6_col1,#T_71814984_fd78_11ea_966e_0242ac110002row6_col2,#T_71814984_fd78_11ea_966e_0242ac110002row6_col3,#T_71814984_fd78_11ea_966e_0242ac110002row6_col4,#T_71814984_fd78_11ea_966e_0242ac110002row6_col5,#T_71814984_fd78_11ea_966e_0242ac110002row6_col6,#T_71814984_fd78_11ea_966e_0242ac110002row6_col7,#T_71814984_fd78_11ea_966e_0242ac110002row6_col8,#T_71814984_fd78_11ea_966e_0242ac110002row6_col9,#T_71814984_fd78_11ea_966e_0242ac110002row6_col14,#T_71814984_fd78_11ea_966e_0242ac110002row6_col15,#T_71814984_fd78_11ea_966e_0242ac110002row6_col16,#T_71814984_fd78_11ea_966e_0242ac110002row6_col17,#T_71814984_fd78_11ea_966e_0242ac110002row7_col0,#T_71814984_fd78_11ea_966e_0242ac110002row7_col1,#T_71814984_fd78_11ea_966e_0242ac110002row7_col2,#T_71814984_fd78_11ea_966e_0242ac110002row7_col3,#T_71814984_fd78_11ea_966e_0242ac110002row7_col4,#T_71814984_fd78_11ea_966e_0242ac110002row7_col5,#T_71814984_fd78_11ea_966e_0242ac110002row7_col6,#T_71814984_fd78_11ea_966e_0242ac110002row7_col13,#T_71814984_fd78_11ea_966e_0242ac110002row7_col14,#T_71814984_fd78_11ea_966e_0242ac110002row7_col15,#T_71814984_fd78_11ea_966e_0242ac110002row7_col16,#T_71814984_fd78_11ea_966e_0242ac110002row7_col17,#T_71814984_fd78_11ea_966e_0242ac110002row8_col0,#T_71814984_fd78_11ea_966e_0242ac110002row8_col1,#T_71814984_fd78_11ea_966e_0242ac110002row8_col2,#T_71814984_fd78_11ea_966e_0242ac110002row8_col3,#T_71814984_fd78_11ea_966e_0242ac110002row8_col4,#T_71814984_fd78_11ea_966e_0242ac110002row8_col13,#T_71814984_fd78_11ea_966e_0242ac110002row8_col14,#T_71814984_fd78_11ea_966e_0242ac110002row8_col15,#T_71814984_fd78_11ea_966e_0242ac110002row8_col16,#T_71814984_fd78_11ea_966e_0242ac110002row8_col17,#T_71814984_fd78_11ea_966e_0242ac110002row9_col0,#T_71814984_fd78_11ea_966e_0242ac110002row9_col1,#T_71814984_fd78_11ea_966e_0242ac110002row9_col2,#T_71814984_fd78_11ea_966e_0242ac110002row9_col3,#T_71814984_fd78_11ea_966e_0242ac110002row9_col4,#T_71814984_fd78_11ea_966e_0242ac110002row9_col16,#T_71814984_fd78_11ea_966e_0242ac110002row9_col17,#T_71814984_fd78_11ea_966e_0242ac110002row10_col0,#T_71814984_fd78_11ea_966e_0242ac110002row10_col1,#T_71814984_fd78_11ea_966e_0242ac110002row10_col2,#T_71814984_fd78_11ea_966e_0242ac110002row10_col3,#T_71814984_fd78_11ea_966e_0242ac110002row10_col4,#T_71814984_fd78_11ea_966e_0242ac110002row10_col5,#T_71814984_fd78_11ea_966e_0242ac110002row10_col6,#T_71814984_fd78_11ea_966e_0242ac110002row10_col17{
             font-size:  6pt;
             background-color:  #ffffff;
@@ -1155,26 +1258,22 @@ For this model we are going to create a digit classifier that will be able to cl
             </tr>
     </tbody></table>
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="sidebar-think-about-the-problem">Sidebar - think about the problem</h3>
 <p>Before jumping into solution mode (ie apply deep learning to everything!) think about the problem space and how you might be able to solve it. </p>
-<p>For this problem (digit recognition) using a simple average might be enough to get a descent result. That is exactly what we will do first.
+<p>For this problem (digit recognition) using a simple average might be enough to get a descent result. That is exactly what we will do first.</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="method-1-pixel-similarity">Method 1: Pixel Similarity</h1>
 <ul>
 <li>find the average pixel value for every pixel of the 3s and 7s<ul>
@@ -1187,15 +1286,16 @@ For this model we are going to create a digit classifier that will be able to cl
 <h3 id="step-1-organise-data">Step 1: Organise data</h3>
 <ul>
 <li>create a tensor by stacking all of our 3s together<ul>
-<li>we will use list comprehension for this
-</div>
-</div></li>
+<li>we will use list comprehension for this</li>
 </ul>
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># open all images, convert to tensor, store in list</span>
 
@@ -1205,74 +1305,62 @@ For this model we are going to create a digit classifier that will be able to cl
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(6131, 6265)</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># lets check one of</span>
 <span class="n">show_image</span><span class="p">(</span><span class="n">three_tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">]);</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
 "
 >
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="step-2-compute-the-average-pixel-value">Step 2: Compute the average pixel value</h3>
 <ul>
 <li>For every pixel position, compute the average over all the images of the intensity of that pixel.</li>
 <li>To do this<ul>
 <li>combine all images into a single 3-dimensional tensor using <a href="https://pytorch.org/docs/stable/generated/torch.stack.html"><code>stack</code></a> which  "<em>Concatenates sequence of tensors along a new dimension</em>."</li>
 <li>PuyTorch needs us to cast the <code>int</code> values to floats in order to compute the average.</li>
-<li>"Generally when images are floats, the pixel values are expected to be between 0 and 1, so we will also divide by 255 here" <a href="https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb">source</a>
-</div>
-</div></li>
+<li>"Generally when images are floats, the pixel values are expected to be between 0 and 1, so we will also divide by 255 here" <a href="https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb">source</a></li>
 </ul>
 </li>
 </ul>
 </div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">stacked_sevens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">seven_tensors</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span>
 <span class="n">stacked_threes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">three_tensors</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">/</span><span class="mi">255</span>
@@ -1280,52 +1368,43 @@ For this model we are going to create a digit classifier that will be able to cl
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>torch.Size([6131, 28, 28])</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<code>tensor</code> jargon
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>tensor</code> jargon
 - <em>rank</em>: the number of axis
-- <em>shape</em>: the size of each axis
+- <em>shape</em>: the size of each axis</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;rank:&#39;</span><span class="p">,</span><span class="n">stacked_threes</span><span class="o">.</span><span class="n">ndim</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
       <span class="s1">&#39;shape:&#39;</span><span class="p">,</span> <span class="n">stacked_threes</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 <code>rank: 3 
@@ -1334,88 +1413,76 @@ For this model we are going to create a digit classifier that will be able to cl
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We have 6,131 images of size 28x28 
-</div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have 6,131 images of size 28x28 </p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="step-3-compute-the-ideal-digits">Step 3: Compute the ideal digits</h3>
 <ul>
 <li>compute the mean along the 0th dimension</li>
-<li>by visualising this ideal 3 we can indeed see that it represents a 3!
-</div>
-</div></li>
+<li>by visualising this ideal 3 we can indeed see that it represents a 3!</li>
 </ul>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">mean3</span> <span class="o">=</span> <span class="n">stacked_threes</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">show_image</span><span class="p">(</span><span class="n">mean3</span><span class="p">);</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
 "
 >
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">mean7</span> <span class="o">=</span> <span class="n">stacked_sevens</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">show_image</span><span class="p">(</span><span class="n">mean7</span><span class="p">);</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
 "
 >
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># here is a random three for comparison</span>
 <span class="n">a_3</span> <span class="o">=</span> <span class="n">stacked_threes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1423,30 +1490,24 @@ We have 6,131 images of size 28x28
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_png output_subarea ">
 <img src="data:image/png;base64,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
 "
 >
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-How could we calculate how similar a 3 is from this ideal 3? Typically there are two methods</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How could we calculate how similar a 3 is from this ideal 3? Typically there are two methods</p>
 <ul>
 <li>take the absolute value of differences (where there are negatives, replace with postive)<ul>
 <li>This is called the <em>mean absolute difference</em> or <em>L1 norm</em></li>
@@ -1459,12 +1520,10 @@ How could we calculate how similar a 3 is from this ideal 3? Typically there are
 </ul>
 </div>
 </div>
-
-
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 3</span>
 <span class="c1"># L1 Norm</span>
@@ -1476,28 +1535,23 @@ How could we calculate how similar a 3 is from this ideal 3? Typically there are
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(tensor(0.1114), tensor(0.2021))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># 7</span>
 <span class="c1"># L1 Norm</span>
@@ -1509,38 +1563,31 @@ How could we calculate how similar a 3 is from this ideal 3? Typically there are
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(tensor(0.1586), tensor(0.3021))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-The distance between our "ideal" 3 and the real 3 is less than the distance from the real 3 to "ideal" 7. This is good - it means both methods will work and our simple model will give the correct prediction.</p>
-<p>PyTorch already provides these loss functions for us (though RMSE is only MSE, but we can work with that).
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The distance between our "ideal" 3 and the real 3 is less than the distance from the real 3 to "ideal" 7. This is good - it means both methods will work and our simple model will give the correct prediction.</p>
+<p>PyTorch already provides these loss functions for us (though RMSE is only MSE, but we can work with that).</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># check results with PyTorch</span>
 
@@ -1548,40 +1595,32 @@ The distance between our "ideal" 3 and the real 3 is less than the distance from
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(tensor(0.1586), tensor(0.3021))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="a-simple-model">A simple model</h3>
 <p>A validation set is usually used to help avoid overfitting, our model has no trained components so this isn't going to be an issue, but let's stick with best practices.</p>
 <p>We will also define a function that will decide if an arbitrary image is a 3 or a 7. This will be achieved by measuring the distance between this digit and our ideal digits and determining which ideal it is closer to. </p>
 </div>
 </div>
 </div>
-</div>
-
-
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">valid_3_tens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">tensor</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">o</span><span class="p">))</span> 
                             <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="p">(</span><span class="n">path</span><span class="o">/</span><span class="s1">&#39;valid&#39;</span><span class="o">/</span><span class="s1">&#39;3&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">ls</span><span class="p">()])</span>
@@ -1593,37 +1632,31 @@ The distance between our "ideal" 3 and the real 3 is less than the distance from
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(torch.Size([1010, 28, 28]), torch.Size([1028, 28, 28]))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<code>mnist_distance</code> calculates the difference between our ideal 3 and every 3 in the validation set.</p>
-<p>We call <code>mean((-1,-2))</code> in our fuction. The tuple <code>(-1,-2)</code> represents a range of axes, so the last -1, and second last -2. <code>mean((-1,-2))</code> says; take the mean over the last two axes in the tensor. Why? These axes represent the verticle and horizontal dimensions of an image. After taking the mean over the these axes, we have one axis left which indexes over the 1,010 images we have. 
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>mnist_distance</code> calculates the difference between our ideal 3 and every 3 in the validation set. </p>
+<p>We call <code>mean((-1,-2))</code> in our fuction. The tuple <code>(-1,-2)</code> represents a range of axes, so the last -1, and second last -2. <code>mean((-1,-2))</code> says; take the mean over the last two axes in the tensor. Why? These axes represent the verticle and horizontal dimensions of an image. After taking the mean over the these axes, we have one axis left which indexes over the 1,010 images we have. </p>
 </div>
-</div></p>
 </div>
-<div class="cell border-box-sizing code_cell rendered"></div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># calculate the mean absolute error</span>
 
@@ -1635,171 +1668,149 @@ The distance between our "ideal" 3 and the real 3 is less than the distance from
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>tensor(0.1114)</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-This works for a single image, but in order to calculate the overall accuracy, we want to calculate this distance to the ideal 3 for all images in the validation set. This can be achieved using a loop, but there is another way - broadcasting.</p>
-<p>Take a look at the shape of <code>valid_3_tens</code> and <code>mean3</code>, they are different...
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This works for a single image, but in order to calculate the overall accuracy, we want to calculate this distance to the ideal 3 for all images in the validation set. This can be achieved using a loop, but there is another way - broadcasting.</p>
+<p>Take a look at the shape of <code>valid_3_tens</code> and <code>mean3</code>, they are different...</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">valid_3_tens</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">mean3</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(torch.Size([1010, 28, 28]), torch.Size([28, 28]))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Now calculate the distance between the two...
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now calculate the distance between the two...</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="n">valid_3_dist</span> <span class="o">=</span> <span class="n">mnist_distance</span><span class="p">(</span><span class="n">valid_3_tens</span><span class="p">,</span> <span class="n">mean3</span><span class="p">)</span>
 
 <span class="n">valid_3_dist</span><span class="p">,</span> <span class="n">valid_3_dist</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(tensor([0.1290, 0.1223, 0.1380,  ..., 0.1337, 0.1132, 0.1097]),
  torch.Size([1010]))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-our function has returned the distance for every single image as a rank-1 tensor of length 1,010.</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>our function has returned the distance for every single image as a rank-1 tensor of length 1,010. </p>
 <p>This is because we have added a subtraction <code>(a-b)</code> into our distance function and when PyTorch performs this subtraction, it uses <em>broadcasting</em> which will automatically expand the tensor with smaller rank to have the same size as the one with larger rank. Once this has happened, PyTorch will perform an element wise operation over the two tensors. </p>
 <p>In our case, PyTorch is treating <code>mean3</code> (a rank 2 tensor) as if it were 1,010 copies of that tensor.</p>
-<p>You can see that by performing a subtraction and checking the shape
+<p>You can see that by performing a subtraction and checking the shape</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="p">(</span><span class="n">valid_3_tens</span><span class="o">-</span><span class="n">mean3</span><span class="p">)</span><span class="o">.</span><span class="n">shape</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>torch.Size([1010, 28, 28])</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-There are a couple of important points about how broadcasting is implemented, which make it valuable not just for expressivity but also for performance:</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are a couple of important points about how broadcasting is implemented, which make it valuable not just for expressivity but also for performance:</p>
 <ul>
 <li>PyTorch doesn't actually copy mean3 1,010 times. It pretends it were a tensor of that shape, but doesn't actually allocate any additional memory</li>
 <li>It does the whole calculation in C (or, if you're using a GPU, in CUDA, the equivalent of C on the GPU), tens of thousands of times faster than pure Python (up to millions of times faster on a GPU!).</li>
 </ul>
-<p><a href="https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb">source</a>
+<p><a href="https://github.com/fastai/fastbook/blob/master/04_mnist_basics.ipynb">source</a></p>
 </div>
-</div></p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="a-funtion-to-make-a-decision">A funtion to make a decision</h3>
-<p><code>is_3</code> is going to use <code>mnist_distance</code> to figure out whether an image is a 3 or a 7. To do this it will check whether the distance between a digit, x and <code>mean3</code> is less than the difference between x and <code>mean7</code>.
+<p><code>is_3</code> is going to use <code>mnist_distance</code> to figure out whether an image is a 3 or a 7. To do this it will check whether the distance between a digit, x and <code>mean3</code> is less than the difference between x and <code>mean7</code>.</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">is_3</span><span class="p">(</span><span class="n">x</span><span class="p">):</span> 
     <span class="k">return</span> <span class="n">mnist_distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean3</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">mnist_distance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">mean7</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># let&#39;s test it</span>
 <span class="c1"># you can convert a boolean to a float </span>
@@ -1808,38 +1819,31 @@ There are a couple of important points about how broadcasting is implemented, wh
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(tensor(True), tensor(1.))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Calculate the accuracy for each 3 and 7 by taking the average of <code>is_3</code> for all 3s and it's inverse for all 7s. 
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Calculate the accuracy for each 3 and 7 by taking the average of <code>is_3</code> for all 3s and it's inverse for all 7s. </p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="n">accuracy_3s</span> <span class="o">=</span>      <span class="n">is_3</span><span class="p">(</span><span class="n">valid_3_tens</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">accuracy_7s</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">is_3</span><span class="p">(</span><span class="n">valid_7_tens</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">())</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 
@@ -1847,130 +1851,123 @@ Calculate the accuracy for each 3 and 7 by taking the average of <code>is_3</cod
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(tensor(0.9168), tensor(0.9854), tensor(0.9511))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Not bad, over 90% accuracy using a very simple model. This was also a very simple problem, 3s and 7s look very different so it's not really a surprise that this was so effective.</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Not bad, over 90% accuracy using a very simple model. This was also a very simple problem, 3s and 7s look very different so it's not really a surprise that this was so effective. </p>
 <p>We will nowe look at a system that will do some learning (automatically modify itself to improve its performance)</p>
-<p>In the next part, we will implement this more advanced model
+<p>In the next part, we will implement this more advanced model</p>
 </div>
-</div></p>
 </div>
-                
-              
-              
-                
+</div>
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
         
-          <a href="../lesson%2002/" title="Lesson 02" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../lesson%2002/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lesson 02" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lesson 02
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Lesson 02
-              </div>
-            </div>
-          </a>
+          </div>
+        </a>
+      
+      
         
-        
-          <a href="../lesson%2003%20pt%202/" title="Lesson 03 pt 2" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Lesson 03 pt 2
-              </div>
+        <a href="../lesson%2003%20pt%202/" class="md-footer__link md-footer__link--next" aria-label="Next: Lesson 03 pt 2" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Lesson 03 pt 2
             </div>
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright 2020 Devin de Araujo
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2020 Devin de Araujo
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://www.linkedin.com/in/devindearaujo/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://www.linkedin.com/in/devindearaujo/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../../assets/javascripts/vendor.92ffa368.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
       
     
   </body>

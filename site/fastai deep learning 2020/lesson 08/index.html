@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -9,13 +7,13 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
-        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2008/">
-      
-      
         <meta name="author" content="Devin de Araujo <devindearaujo@gmail.com>">
       
-      <link rel="shortcut icon" href="../../images/dda.svg">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.0">
+      
+        <link rel="canonical" href="https://what-the-dev.github.io/dev.github.io/fastai%20deep%20learning%202020/lesson%2008/">
+      
+      <link rel="icon" href="../../images/dda.svg">
+      <meta name="generator" content="mkdocs-1.3.1, mkdocs-material-8.5.3">
     
     
       
@@ -23,24 +21,28 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.b5d04df8.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7a952b86.min.css">
       
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.9ab2c1f8.min.css">
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.cbb835fc.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#ffffff">
+        
       
+      
+
+    
+    
+    
       
         
         
-        <meta name="theme-color" content="">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
-    
-    
-    
-      
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
-      
-    
     
     
       <link rel="stylesheet" href="../../stylesheets/extra.css">
@@ -49,8 +51,11 @@
     
       <link rel="stylesheet" href="../../css/pandas-dataframe.css">
     
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
+
+    
     
     
   </head>
@@ -59,8 +64,11 @@
     
     
     
+    
+    
     <body dir="ltr" data-md-color-scheme="" data-md-color-primary="white" data-md-color-accent="pink">
   
+    
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
@@ -77,47 +85,57 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid" aria-label="Header">
-    <a href="https://what-the-dev.github.io/dev.github.io/" title="devin de araujo" class="md-header-nav__button md-logo" aria-label="devin de araujo">
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="devin de araujo" class="md-header__button md-logo" aria-label="devin de araujo" data-md-component="logo">
       
   <img src="../../images/dda.svg" alt="logo">
 
     </a>
-    <label class="md-header-nav__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
     </label>
-    <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
             devin de araujo
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
             
               Lesson 08
             
           </span>
         </div>
-      
+      </div>
     </div>
     
-      <label class="md-header-nav__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
       </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
+      <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
       </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
     </form>
     <div class="md-search__output">
       <div class="md-search__scrollwrap" data-md-scrollfix>
@@ -133,12 +151,11 @@
 </div>
     
     
-      <div class="md-header-nav__source">
-        
-<a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source">
+      <div class="md-header__source">
+        <a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -147,25 +164,30 @@
       </div>
     
   </nav>
+  
 </header>
     
     <div class="md-container" data-md-component="container">
       
+      
         
-      
-      
+          
         
       
       <main class="md-main" data-md-component="main">
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="https://what-the-dev.github.io/dev.github.io/" title="devin de araujo" class="md-nav__button md-logo" aria-label="devin de araujo">
+    <a href="../.." title="devin de araujo" class="md-nav__button md-logo" aria-label="devin de araujo" data-md-component="logo">
       
   <img src="../../images/dda.svg" alt="logo">
 
@@ -174,11 +196,10 @@
   </label>
   
     <div class="md-nav__source">
-      
-<a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source">
+      <a href="https://github.com/what-the-dev/" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -192,12 +213,15 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../.." title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        About
+      </a>
+    </li>
+  
 
     
       
@@ -205,175 +229,271 @@
       
 
   
-
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  
+  
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
-    
-    <label class="md-nav__link" for="nav-2">
-      Fastai deep learning 2020
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
-    </label>
-    <nav class="md-nav" aria-label="Fastai deep learning 2020" data-md-level="1">
-      <label class="md-nav__title" for="nav-2">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
-        Fastai deep learning 2020
-      </label>
-      <ul class="md-nav__list" data-md-scrollfix>
-        
-        
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Deep learning
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Deep learning" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Deep learning
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
           
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../" title="About" class="md-nav__link">
-      About
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2001/" title="Lesson 01" class="md-nav__link">
-      Lesson 01
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2002/" title="Lesson 02" class="md-nav__link">
-      Lesson 02
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2003%20pt%201/" title="Lesson 03 pt 1" class="md-nav__link">
-      Lesson 03 pt 1
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2003%20pt%202/" title="Lesson 03 pt 2" class="md-nav__link">
-      Lesson 03 pt 2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2004/" title="Lesson 04" class="md-nav__link">
-      Lesson 04
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2006%20pt%201/" title="Lesson 06 pt 1" class="md-nav__link">
-      Lesson 06 pt 1
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2006%20pt%202/" title="Lesson 06 pt 2" class="md-nav__link">
-      Lesson 06 pt 2
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../lesson%2007/" title="Lesson 07" class="md-nav__link">
-      Lesson 07
-    </a>
-  </li>
-
-        
-          
-          
-          
-
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/" class="md-nav__link">
+        About
+      </a>
+    </li>
   
 
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/01%20Topic%20Modeling/" class="md-nav__link">
+        01 Topic Modeling
+      </a>
+    </li>
+  
 
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../deep%20learning/02%20Regression%20Analysis/" class="md-nav__link">
+        02 Regression Analysis
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
     
       
+      
+      
+
+  
+  
     
+  
+  
     
-      <label class="md-nav__link md-nav__link--active" for="__toc">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          Fastai deep learning 2020
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Fastai deep learning 2020" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Fastai deep learning 2020
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        About
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2001/" class="md-nav__link">
+        Lesson 01
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2002/" class="md-nav__link">
+        Lesson 02
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2003%20pt%201/" class="md-nav__link">
+        Lesson 03 pt 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2003%20pt%202/" class="md-nav__link">
+        Lesson 03 pt 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2004/" class="md-nav__link">
+        Lesson 04
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2006%20pt%201/" class="md-nav__link">
+        Lesson 06 pt 1
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2006%20pt%202/" class="md-nav__link">
+        Lesson 06 pt 2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../lesson%2007/" class="md-nav__link">
+        Lesson 07
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Lesson 08
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Lesson 08
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
-      </label>
-    
-    <a href="./" title="Lesson 08" class="md-nav__link md-nav__link--active">
-      Lesson 08
-    </a>
-    
+      </a>
       
+        
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#nlp" class="md-nav__link">
@@ -447,13 +567,16 @@
     </ul>
   
 </nav>
-    
-  </li>
+      
+    </li>
+  
 
-        
-      </ul>
-    </nav>
-  </li>
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
 
     
   </ul>
@@ -463,23 +586,24 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
+
 <nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
   
   
     
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-scrollfix>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
   <a href="#nlp" class="md-nav__link">
@@ -558,27 +682,27 @@
               </div>
             
           
-          <div class="md-content">
-            <article class="md-content__inner md-typeset">
-              
-                
-                  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 08.ipynb" title="Edit this page" class="md-content__button md-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
-                  </a>
-                
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
                 
                   
-                
-                
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+
+  <a href="https://github.com/what-the-dev/edit/master/docs/fastai deep learning 2020/lesson 08.ipynb" title="Edit this page" class="md-content__button md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
+  </a>
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-
 <script>
 (function() {
   function addWidgetsRenderer() {
+    var requireJsScript = document.createElement('script');
+    requireJsScript.src = 'https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js';
+
     var mimeElement = document.querySelector('script[type="application/vnd.jupyter.widget-view+json"]');
-    var scriptElement = document.createElement('script');
+    var jupyterWidgetsScript = document.createElement('script');
     var widgetRendererSrc = 'https://unpkg.com/@jupyter-widgets/html-manager@*/dist/embed-amd.js';
     var widgetState;
 
@@ -591,8 +715,10 @@
       }
     } catch(e) {}
 
-    scriptElement.src = widgetRendererSrc;
-    document.body.appendChild(scriptElement);
+    jupyterWidgetsScript.src = widgetRendererSrc;
+
+    document.body.appendChild(requireJsScript);
+    document.body.appendChild(jupyterWidgetsScript);
   }
 
   document.addEventListener('DOMContentLoaded', addWidgetsRenderer);
@@ -600,8 +726,8 @@
 </script>
 
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="lesson-8-deep-learning-for-coders">Lesson 8: Deep Learning for Coders</h1>
 <h2 id="nlp">NLP</h2>
 <p>This notebook will take a dive into Natural Language Processing and will attempt to train an NLP classifyer. This is a binary classification task using movie review sentiment. </p>
@@ -609,13 +735,13 @@
 <p>In lesson 1, we acheived over 90% accuracy because we were using a pre-trained model that we fine-tuned further. So what is a pre-trained language model?</p>
 <p>A language model is one where we try to predict the next word in a sentence. For lesson one, this was a neaural net pre-trained on wiki articles (Wikitext 103). </p>
 <p>How does this help with sentiment anlysis? Like pre-trained image models, language models too contain a lot of information that can be leveraged rather than training from scratch. Fine-tuning will throw away the last layer(s) and train these rather than the entire model.</p>
-<p>Through transfer learning, we will create an Imdb language model using the wikitext model as a base.
+<p>Through transfer learning, we will create an Imdb language model using the wikitext model as a base.</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="text-preprocessing">Text preprocessing</h3>
 <ul>
 <li><strong>Tokenization</strong>: Convert the text into a list of words (or characters, or substrings, depending on the granularity of your model)</li>
@@ -636,31 +762,33 @@
 </ul>
 <h3 id="data">Data</h3>
 <ul>
-<li>The <a href="http://ai.stanford.edu/~amaas/data/sentiment/">IMDB Large</a> dataset contains 25,000 highly polar movie reviews for training, and 25,000 for testing. It is very large!
-</div>
-</div></li>
+<li>The <a href="http://ai.stanford.edu/~amaas/data/sentiment/">IMDB Large</a> dataset contains 25,000 highly polar movie reviews for training, and 25,000 for testing. It is very large!</li>
 </ul>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastai.text.all</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">IMDB</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<code>get_text_files</code> gets all the text files in a path. We can also optionally pass folders to restrict the search to a particular list of subfolders:
 </div>
-</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>get_text_files</code> gets all the text files in a path. We can also optionally pass folders to restrict the search to a particular list of subfolders:</p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># only using 50k sample due to size of dataset</span>
 <span class="c1"># results may vary from fastai book</span>
@@ -669,11 +797,12 @@
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># print out slice of first review</span>
 <span class="n">txt</span> <span class="o">=</span> <span class="n">files</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">open</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -682,39 +811,33 @@
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;The worst movie I&#39;ve ever seen, hands down. It is ten times more a rip-off &#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<code>first()</code>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>first()</code>
 - First element of <code>x</code>, or None if missing</p>
 <p><code>coll_repr</code>
-- String repr of up to <code>max_n</code> items of (possibly lazy) collection <code>c</code>
+- String repr of up to <code>max_n</code> items of (possibly lazy) collection <code>c</code></p>
 </div>
-</div></p>
 </div>
-<div class="cell border-box-sizing code_cell rendered"></div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">spacy</span> <span class="o">=</span> <span class="n">WordTokenizer</span><span class="p">()</span>
 <span class="n">toks</span> <span class="o">=</span> <span class="n">first</span><span class="p">(</span><span class="n">spacy</span><span class="p">([</span><span class="n">txt</span><span class="p">]))</span>
@@ -723,13 +846,11 @@
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 <code>(#156) [&#39;The&#39;,&#39;worst&#39;,&#39;movie&#39;,&#39;I&#39;,&#34;&#39;ve&#34;,&#39;ever&#39;,&#39;seen&#39;,&#39;,&#39;,&#39;hands&#39;,&#39;down&#39;,&#39;.&#39;,&#39;It&#39;,&#39;is&#39;,&#39;ten&#39;,&#39;times&#39;,&#39;more&#39;,&#39;a&#39;,&#39;rip&#39;,&#39;-&#39;,&#39;off&#39;,&#39;of&#39;,&#39;Lake&#39;,&#39;Placid&#39;,&#39;than&#39;,&#39;it&#39;,&#39;is&#39;,&#39;a&#39;,&#39;sequel&#39;,&#39;.&#39;,&#39;Director&#39;...]
@@ -737,19 +858,19 @@
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-fastai provides additional functionality to tokenisers, such as adding in special tokens like begining of string <code>xxbos</code> or lowercasing all strings and adding the <code>xxmaj</code> token before. This is done to preserve importance and reduce some complexity.
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>fastai provides additional functionality to tokenisers, such as adding in special tokens like begining of string <code>xxbos</code> or lowercasing all strings and adding the <code>xxmaj</code> token before. This is done to preserve importance and reduce some complexity.</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">tkn</span> <span class="o">=</span> <span class="n">Tokenizer</span><span class="p">(</span><span class="n">spacy</span><span class="p">)</span>
 
@@ -757,13 +878,11 @@ fastai provides additional functionality to tokenisers, such as adding in specia
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 <code>(#176) [&#39;xxbos&#39;,&#39;xxmaj&#39;,&#39;the&#39;,&#39;worst&#39;,&#39;movie&#39;,&#39;xxmaj&#39;,&#39;i&#39;,&#34;&#39;ve&#34;,&#39;ever&#39;,&#39;seen&#39;,&#39;,&#39;,&#39;hands&#39;,&#39;down&#39;,&#39;.&#39;,&#39;xxmaj&#39;,&#39;it&#39;,&#39;is&#39;,&#39;ten&#39;,&#39;times&#39;,&#39;more&#39;,&#39;a&#39;,&#39;rip&#39;,&#39;-&#39;,&#39;off&#39;,&#39;of&#39;,&#39;xxmaj&#39;,&#39;lake&#39;,&#39;xxmaj&#39;,&#39;placid&#39;,&#39;than&#39;,&#39;it&#39;...]
@@ -771,34 +890,29 @@ fastai provides additional functionality to tokenisers, such as adding in specia
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-You can explore the rules like so
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can explore the rules like so</p>
 </div>
-</div></p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
+
 <div class="codehilite"><pre><span></span><code><span class="n">defaults</span><span class="o">.</span><span class="n">text_proc_rules</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>[&lt;function fastai.text.core.fix_html(x)&gt;,
@@ -811,53 +925,50 @@ You can explore the rules like so
  &lt;function fastai.text.core.lowercase(t, add_bos=True, add_eos=False)&gt;]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-then check the source code for each using ?? like <code>fix_html??</code>
 </div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>then check the source code for each using ?? like <code>fix_html??</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="subword-tokenisation">Subword Tokenisation</h3>
-</div>
-</div>
 <p>Word tokenisation relies on spaces within the document.</p>
 <p><strong>Subword tokenisation</strong> does two things
 1. analyses a corpus of documents to find the most commonly occurring groups of letters. These then become the vocab
 2. Tokenise the corpus using this vocab of subword units</p>
 </div>
 </div>
-
-
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">txts</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">o</span><span class="o">.</span><span class="n">open</span><span class="p">()</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">files</span><span class="p">[:</span><span class="mi">2000</span><span class="p">])</span>
 </code></pre></div>
 
 
-</div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We instantiate our tokeniser, by defining the size of the vocab, then training it.</p>
-<p>meaing, have the tokeniser read the documents, find the common sequences of characters then create the vocab. in fastai, this is done with <code>setup</code>. 
 </div>
-</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We instantiate our tokeniser, by defining the size of the vocab, then training it. </p>
+<p>meaing, have the tokeniser read the documents, find the common sequences of characters then create the vocab. in fastai, this is done with <code>setup</code>. </p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">subword</span><span class="p">(</span><span class="n">sz</span><span class="p">):</span>
     <span class="n">sp</span> <span class="o">=</span> <span class="n">SubwordTokenizer</span><span class="p">(</span><span class="n">vocab_sz</span><span class="o">=</span><span class="n">sz</span><span class="p">)</span>
@@ -866,160 +977,134 @@ We instantiate our tokeniser, by defining the size of the vocab, then training i
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">subword</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 
 </div>
-
 </div>
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;▁The ▁worst ▁movie ▁I &#39; ve ▁ever ▁seen , ▁hand s ▁down . ▁It ▁is ▁t en ▁time s ▁more ▁a ▁ r i p - off ▁of ▁L ake ▁P la ci d ▁than ▁it ▁is ▁a ▁sequel .&#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-the special character ▁ represents a space character in the original text.
 </div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-using a smaller vocab results in each token representing fewer characters, and will need more tokens to represent a sentence
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the special character ▁ represents a space character in the original text.</p>
 </div>
-</div></p>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>using a smaller vocab results in each token representing fewer characters, and will need more tokens to represent a sentence</p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">subword</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 
 </div>
-
 </div>
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;▁The ▁w or s t ▁movie ▁I &#39; ve ▁ e ver ▁s e en , ▁ h an d s ▁d o w n . ▁I t ▁is ▁ t en ▁ t i m es ▁mo re ▁a&#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Using larger vocab will result in most common English words ending up in the vocab, and fewer tokens will be needed to represent a sentence
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using larger vocab will result in most common English words ending up in the vocab, and fewer tokens will be needed to represent a sentence</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">subword</span><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 
 </div>
-
 </div>
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;▁The ▁worst ▁movie ▁I &#39; ve ▁ever ▁seen , ▁hands ▁down . ▁It ▁is ▁ten ▁times ▁more ▁a ▁rip - off ▁of ▁Lake ▁Placid ▁than ▁it ▁is ▁a ▁sequel . ▁Director ▁David ▁F lo re s ▁clearly ▁did ▁not ▁go&#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-There are trade-off to be made here: larger vocab means fewer tokens per sentence leading to faster training and less memory and state required for the model. The downside is larger embedding matrices which require more data to learn.</p>
-<p>Subword tokenisation provides an easy way to scale between character and word tokenisation while also being useful for applications involving languages other than english.
 </div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are trade-off to be made here: larger vocab means fewer tokens per sentence leading to faster training and less memory and state required for the model. The downside is larger embedding matrices which require more data to learn.</p>
+<p>Subword tokenisation provides an easy way to scale between character and word tokenisation while also being useful for applications involving languages other than english.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="numericalisation">Numericalisation</h3>
 <p>This is the process of mapping tokens to integers. It is nearly identical to the steps necessary to create a <code>Category</code> variable</p>
 <ol>
 <li>Make a list of all possible levels of that categorical variable (vocab)</li>
-<li>replace each level with it's index in the vocab
-</div>
-</div></li>
+<li>replace each level with it's index in the vocab</li>
 </ol>
 </div>
-<div class="cell border-box-sizing code_cell rendered"></div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">toks</span> <span class="o">=</span> <span class="n">tkn</span><span class="p">(</span><span class="n">txt</span><span class="p">)</span>
 
@@ -1027,13 +1112,11 @@ There are trade-off to be made here: larger vocab means fewer tokens per sentenc
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 <code>(#176) [&#39;xxbos&#39;,&#39;xxmaj&#39;,&#39;the&#39;,&#39;worst&#39;,&#39;movie&#39;,&#39;xxmaj&#39;,&#39;i&#39;,&#34;&#39;ve&#34;,&#39;ever&#39;,&#39;seen&#39;,&#39;,&#39;,&#39;hands&#39;,&#39;down&#39;,&#39;.&#39;,&#39;xxmaj&#39;,&#39;it&#39;,&#39;is&#39;,&#39;ten&#39;,&#39;times&#39;,&#39;more&#39;,&#39;a&#39;,&#39;rip&#39;,&#39;-&#39;,&#39;off&#39;,&#39;of&#39;,&#39;xxmaj&#39;,&#39;lake&#39;,&#39;xxmaj&#39;,&#39;placid&#39;,&#39;than&#39;,&#39;it&#39;,&#39;is&#39;...]
@@ -1041,12 +1124,12 @@ There are trade-off to be made here: larger vocab means fewer tokens per sentenc
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># a small example</span>
 <span class="n">toks200</span> <span class="o">=</span> <span class="n">txts</span><span class="p">[:</span><span class="mi">200</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">tkn</span><span class="p">)</span>
@@ -1055,28 +1138,23 @@ There are trade-off to be made here: larger vocab means fewer tokens per sentenc
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#176) [&#39;xxbos&#39;,&#39;xxmaj&#39;,&#39;the&#39;,&#39;worst&#39;,&#39;movie&#39;,&#39;xxmaj&#39;,&#39;i&#39;,&#34;&#39;ve&#34;,&#39;ever&#39;,&#39;seen&#39;...]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">num</span> <span class="o">=</span> <span class="n">Numericalize</span><span class="p">()</span>
 <span class="n">num</span><span class="o">.</span><span class="n">setup</span><span class="p">(</span><span class="n">toks200</span><span class="p">)</span>
@@ -1085,38 +1163,31 @@ There are trade-off to be made here: larger vocab means fewer tokens per sentenc
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;(#2144) [&#39;xxunk&#39;,&#39;xxpad&#39;,&#39;xxbos&#39;,&#39;xxeos&#39;,&#39;xxfld&#39;,&#39;xxrep&#39;,&#39;xxwrep&#39;,&#39;xxup&#39;,&#39;xxmaj&#39;,&#39;the&#39;,&#39;,&#39;,&#39;.&#39;,&#39;and&#39;,&#39;a&#39;,&#39;of&#39;,&#39;to&#39;,&#39;is&#39;,&#39;in&#39;,&#39;it&#39;,&#39;i&#39;...]&#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-this is our vocab, starting with special tokens, then english words in order of highest frequency.</p>
-<p>we can now use the <code>Numericalize</code> object as a function and apply it to our tokens to see the integers they now represent
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>this is our vocab, starting with special tokens, then english words in order of highest frequency.</p>
+<p>we can now use the <code>Numericalize</code> object as a function and apply it to our tokens to see the integers they now represent</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">nums</span> <span class="o">=</span> <span class="n">num</span><span class="p">(</span><span class="n">toks</span><span class="p">)[:</span><span class="mi">20</span><span class="p">]</span>
 
@@ -1124,65 +1195,61 @@ this is our vocab, starting with special tokens, then english words in order of 
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>tensor([  2,   8,   9, 310,  27,   8,  19, 218, 158, 141,  10,   0, 229,  11,
           8,  18,  16, 550, 299,  66])</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="create-batches-for-language-model">Create batches for language model</h3>
 <p>Batches are split based on the sequence length and batch size.</p>
 <p>Batches are created by concatenating individual texts into a stream. Order of inputs are randomised, meaning the order of the documents (not order of words in these) are shuffled.</p>
-</div>
-</div>
 <p>The stream is then divided into batches. </p>
 <p>This is done at every epoch
 - shuffle the collection of documents
 - concatenate them together into a stream of tokens
 - cut the stream into batches of fixed size consecutive mini streams</p>
-<p>This is all done in fastai using <code>LMDataLoader</code>. For example
+<p>This is all done in fastai using <code>LMDataLoader</code>. For example</p>
 </div>
-</div></p>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">nums200</span> <span class="o">=</span> <span class="n">toks200</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">dl</span> <span class="o">=</span> <span class="n">LMDataLoader</span><span class="p">(</span><span class="n">nums200</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="o">=</span> <span class="n">first</span><span class="p">(</span><span class="n">dl</span><span class="p">)</span>
 
@@ -1190,102 +1257,83 @@ this is our vocab, starting with special tokens, then english words in order of 
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(torch.Size([64, 72]), torch.Size([64, 72]))</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<code>batch size</code> = 64</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><code>batch size</code> = 64</p>
 <p><code>stream length</code> = 72</p>
-<p>Looking at the first row of the independent variable should contain the start of the text
+<p>Looking at the first row of the independent variable should contain the start of the text</p>
 </div>
-</div></p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">20</span><span class="p">])</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;xxbos xxmaj the worst movie xxmaj i &#39;ve ever seen , xxunk down . xxmaj it is ten times more&#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-the dependent variable will be the same but offset by one token
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the dependent variable will be the same but offset by one token</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">num</span><span class="o">.</span><span class="n">vocab</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">][:</span><span class="mi">20</span><span class="p">])</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#34;xxmaj the worst movie xxmaj i &#39;ve ever seen , xxunk down . xxmaj it is ten times more a&#34;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="pt-1-training-a-text-classifier-using-fastai">Pt 1: Training a Text Classifier using fastai</h1>
 <p>The reason that <code>TextBlock</code> is special is because setting up the numericalizer's vocab can take a long time (we have to read and tokenize every document to get the vocab). To be as efficient as possible the <code>TextBlock</code> performs a few optimizations:</p>
 <ul>
@@ -1294,12 +1342,13 @@ the dependent variable will be the same but offset by one token
 </ul>
 <p>We need to tell <code>TextBlock</code> how to access the texts, so that it can do this initial preprocessing—that's what from_folder does.</p>
 <p><code>show_batch</code> then works in the usual way</p>
-<p><a href="https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb">source</a>
+<p><a href="https://github.com/fastai/fastbook/blob/master/10_nlp.ipynb">source</a></p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">get_imdb</span> <span class="o">=</span> <span class="n">partial</span><span class="p">(</span><span class="n">get_text_files</span><span class="p">,</span> <span class="n">folders</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">,</span> <span class="s1">&#39;unsup&#39;</span><span class="p">])</span>
 
@@ -1311,34 +1360,32 @@ the dependent variable will be the same but offset by one token
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">dls_lm</span><span class="o">.</span><span class="n">show_batch</span><span class="p">(</span><span class="n">max_n</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: right;">
       <th></th>
       <th>text</th>
       <th>text_</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <th>0</th>
       <td>xxbos xxmaj my sincere advice to all : do n't watch the movie . \n\n xxmaj do n't even go near to the theater where this movie is being played ! ! even a glimpse of it is bad for health . serious . no jokes . it 's xxunk am in the morning . and i returned from this crappiest movie on this universe . xxup four xxup hours xxup damn xxrep 3 ! i am proud that i</td>
@@ -1352,25 +1399,23 @@ the dependent variable will be the same but offset by one token
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="fine-tuning">Fine tuning</h3>
 <p>To convert the integer word indices into activations for the neural net, we will use embeddings. These are then fed into the RNN using an architecture called <code>AWD_LSTM</code></p>
 <p>cross entropy loss is sutable here since this is a classification problem. Often a metric called <em>perplexity</em> is used in NLP, this is the exponential of the loss (<code>torch.exp(cross_entropy)</code>). To this we will also add accuracy to determine how the model performs when trying to predict the next word. </p>
+<p><code>to_fp16</code> uses less GPU memory and trains faster</p>
 </div>
 </div>
-<p><code>to_fp16</code> uses less GPU memory and trains faster
 </div>
-</div></p>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">language_model_learner</span><span class="p">(</span>
     <span class="n">dls_lm</span><span class="p">,</span> <span class="n">AWD_LSTM</span><span class="p">,</span> <span class="n">drop_mult</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> 
@@ -1378,27 +1423,25 @@ the dependent variable will be the same but offset by one token
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2e-2</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -1408,7 +1451,7 @@ the dependent variable will be the same but offset by one token
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>4.129613</td>
@@ -1420,59 +1463,56 @@ the dependent variable will be the same but offset by one token
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="saving-and-loading-models">Saving and Loading models</h3>
-<p></div>
-</div></p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;1epoch&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">learn</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;1epoch&#39;</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span><span class="o">.</span><span class="n">unfreeze</span><span class="p">()</span>
 <span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mf">2e-3</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -1482,7 +1522,7 @@ the dependent variable will be the same but offset by one token
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>3.870227</td>
@@ -1526,10 +1566,8 @@ the dependent variable will be the same but offset by one token
   </tbody>
 </table>
 </div>
-
 </div>
-
-<div class="output_area" markdown="1">
+<div class="output_area">
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>
 <code>IOPub message rate exceeded.
@@ -1556,69 +1594,64 @@ NotebookApp.rate_limit_window=3.0 (secs)
 </pre>
 </div>
 </div>
-
 </div>
 </div>
-
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="pt-2-a-language-model-from-scratch">Pt 2: A Language Model from Scratch</h1>
 <h3 id="data_1">Data</h3>
 <ul>
-<li>The Human Numbers data set contains the first 10,000 numbers written in english. It was created by Jeremy for experimentation.
-</div>
-</div></li>
+<li>The Human Numbers data set contains the first 10,000 numbers written in english. It was created by Jeremy for experimentation.</li>
 </ul>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="kn">from</span> <span class="nn">fastai.text.all</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="n">path</span> <span class="o">=</span> <span class="n">untar_data</span><span class="p">(</span><span class="n">URLs</span><span class="o">.</span><span class="n">HUMAN_NUMBERS</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
 </div>
-<div class="cell border-box-sizing code_cell rendered"></div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">path</span><span class="o">.</span><span class="n">ls</span><span class="p">()</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#2) [Path(&#39;/storage/data/human_numbers/valid.txt&#39;),Path(&#39;/storage/data/human_numbers/train.txt&#39;)]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Lake a look at some of the data
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Lake a look at some of the data</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">lines</span> <span class="o">=</span> <span class="n">L</span><span class="p">()</span>
 
@@ -1629,137 +1662,113 @@ Lake a look at some of the data
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#9998) [&#39;one \n&#39;,&#39;two \n&#39;,&#39;three \n&#39;,&#39;four \n&#39;,&#39;five \n&#39;,&#39;six \n&#39;,&#39;seven \n&#39;,&#39;eight \n&#39;,&#39;nine \n&#39;,&#39;ten \n&#39;...]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-concat all into one big stream, with "." to separate
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>concat all into one big stream, with "." to separate</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39; . &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">l</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">lines</span><span class="p">])</span>
 <span class="n">text</span><span class="p">[:</span><span class="mi">100</span><span class="p">]</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>&#39;one . two . three . four . five . six . seven . eight . nine . ten . eleven . twelve . thirteen . fo&#39;</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-use work tokenisation by splitting on spaces
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>use work tokenisation by splitting on spaces</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">tokens</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">))</span>
 <span class="n">tokens</span><span class="p">[</span><span class="mi">100</span><span class="p">:</span><span class="mi">110</span><span class="p">]</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#10) [&#39;.&#39;,&#39;forty&#39;,&#39;two&#39;,&#39;.&#39;,&#39;forty&#39;,&#39;three&#39;,&#39;.&#39;,&#39;forty&#39;,&#39;four&#39;,&#39;.&#39;]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-for numericalisation, we need to create a list of all unique words. we can then convert these into numbers
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>for numericalisation, we need to create a list of all unique words. we can then convert these into numbers</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="n">vocab</span> <span class="o">=</span> <span class="n">L</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 <span class="n">vocab</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#30) [&#39;one&#39;,&#39;.&#39;,&#39;two&#39;,&#39;three&#39;,&#39;four&#39;,&#39;five&#39;,&#39;six&#39;,&#39;seven&#39;,&#39;eight&#39;,&#39;nine&#39;...]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">word2idx</span> <span class="o">=</span> <span class="p">{</span><span class="n">w</span><span class="p">:</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">w</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="p">)}</span>
 
@@ -1769,82 +1778,70 @@ for numericalisation, we need to create a list of all unique words. we can then 
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>((#63095) [&#39;one&#39;,&#39;.&#39;,&#39;two&#39;,&#39;.&#39;,&#39;three&#39;,&#39;.&#39;,&#39;four&#39;,&#39;.&#39;,&#39;five&#39;,&#39;.&#39;...],
  (#63095) [0,1,2,1,3,1,4,1,5,1...])</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We now have a small dataset that we can use for language modelling.
 </div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We now have a small dataset that we can use for language modelling.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="creating-a-language-model">Creating a Language Model</h3>
-</div>
-</div>
 <p>For this simple example, we will predict the next word based on the previous 3 words. </p>
-<p>To do this, create a list with the independent variable being the first 3 words, and dependent variable being the 4th word.
+<p>To do this, create a list with the independent variable being the first 3 words, and dependent variable being the 4th word.</p>
 </div>
-</div></p>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">L</span><span class="p">((</span><span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">],</span> <span class="n">tokens</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">tokens</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>((#3) [&#39;one&#39;,&#39;.&#39;,&#39;two&#39;], &#39;.&#39;)</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We can see from looking at the first items that <code>['one','.','two']</code> are the independent variable and <code>'.'</code> is the dependent variable.</p>
-<p>What the model will actually use are tensors of the numericalised values.
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see from looking at the first items that <code>['one','.','two']</code> are the independent variable and <code>'.'</code> is the dependent variable.</p>
+<p>What the model will actually use are tensors of the numericalised values.</p>
 </div>
-</div></p>
 </div>
-<div class="cell border-box-sizing code_cell rendered"></div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">seqs</span> <span class="o">=</span> <span class="n">L</span><span class="p">((</span><span class="n">tensor</span><span class="p">(</span><span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">]),</span> <span class="n">nums</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">3</span><span class="p">])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">nums</span><span class="p">)</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 
@@ -1852,39 +1849,34 @@ We can see from looking at the first items that <code>['one','.','two']</code> a
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(#21031) [(tensor([0, 1, 2]), 1),(tensor([1, 3, 1]), 4),(tensor([4, 1, 5]), 1),(tensor([1, 6, 1]), 7),(tensor([7, 1, 8]), 1),(tensor([1, 9, 1]), 10),(tensor([10,  1, 11]), 1),(tensor([ 1, 12,  1]), 13),(tensor([13,  1, 14]), 1),(tensor([ 1, 15,  1]), 16)...]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="create-a-dataloader">Create a DataLoader</h3>
 <ul>
 <li>batch size of 64</li>
-<li>split randomly, taking 80%
-</div>
-</div></li>
+<li>split randomly, taking 80%</li>
 </ul>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">bs</span> <span class="o">=</span> <span class="mi">64</span>
 <span class="n">cut</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
@@ -1892,12 +1884,12 @@ We can see from looking at the first items that <code>['one','.','two']</code> a
 </code></pre></div>
 
 
-</div>
 
 </div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="the-model-in-pytorch">The model in PyTorch</h3>
 <p>A simple linear model has an input of size (batch size x #inputs), followed by a single hidden layer that computes a matrix product followed by ReLU; Out of which we will get some activations, the size of which will be (batch size x #activations). This is then followed by more computation, a matrix product followed by softmax. The final output size will be (batch size x #classes).</p>
 <p>We will take this approach and modify it for our model. </p>
@@ -1912,21 +1904,21 @@ We can see from looking at the first items that <code>['one','.','two']</code> a
 <p>Then put that through another linear layer and non-linearity. These activations are added (or concatenated would be fine) to the resulting activations of word 2 which is also run through a linear layer and non-linearity. </p>
 <p>Again the results are run through another linear layer and non-linearity while also adding in the result of putting word 3 through a computation layer as we did with word 2. </p>
 <p>These activations then go through a final linear layer and softmax to create the output activations. </p>
-<p>What is interesting about this model is that inputs are entering in later layer and added into the network. Also, arrows of the same colour mean that the same weight matrix is being used. 
+<p>What is interesting about this model is that inputs are entering in later layer and added into the network. Also, arrows of the same colour mean that the same weight matrix is being used. </p>
 </div>
-</div></p>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<img alt="nlp_net" src="./lesson8_assets/nlp_net.PNG" />
-</div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-In code we can represent this like so...</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img alt="nlp_net" src="./lesson8_assets/nlp_net.PNG" /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In code we can represent this like so...</p>
 <p>To go from the input to hidden layer we use an embedding. We create one embedding which subsequent words will also go through, and each time we add this to the current set of activations.</p>
 <p>Why use the same embedding layer?? Conceptually, the words all represent english spellings of numbers, so they have the same meaning and therefore wouldn't need separate embeddings.</p>
 <p>Once we have the embedding, we send this through the linear layer, then through relu. As with embeddings, we can use the same Linear layer because we are doing the same kind of computation.</p>
@@ -1958,13 +1950,13 @@ In code we can represent this like so...</p>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">h_o</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 </code></pre></div>
 
-
-<p>the activations in the model are known as the "hidden state"
+<p>the activations in the model are known as the "hidden state"</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">LMModel1</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_sz</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">):</span>
@@ -1982,11 +1974,12 @@ In code we can represent this like so...</p>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">LMModel1</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">64</span><span class="p">),</span> 
                 <span class="n">loss_func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">,</span> 
@@ -1996,17 +1989,14 @@ In code we can represent this like so...</p>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -2015,7 +2005,7 @@ In code we can represent this like so...</p>
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>1.863818</td>
@@ -2047,36 +2037,34 @@ In code we can represent this like so...</p>
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-So far our accuracy is just under 50%. Not bad. We can improve by first refactoring... <code>LMModel1</code> has a few repeated steps, we can remove this by adding in a for loop.
-</div>
-</div></p>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-<img alt="nlp_net2" src="./lesson8_assets/nlp_net2.PNG" />
-</div>
-</div></p>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So far our accuracy is just under 50%. Not bad. We can improve by first refactoring... <code>LMModel1</code> has a few repeated steps, we can remove this by adding in a for loop.</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img alt="nlp_net2" src="./lesson8_assets/nlp_net2.PNG" /></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="our-first-recurrent-neural-net">Our first Recurrent Neural Net</h3>
-<p></div>
-</div></p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">LMModel2</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_sz</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">):</span>
@@ -2096,11 +2084,12 @@ So far our accuracy is just under 50%. Not bad. We can improve by first refactor
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># check we get the same results</span>
 
@@ -2112,17 +2101,14 @@ So far our accuracy is just under 50%. Not bad. We can improve by first refactor
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -2131,7 +2117,7 @@ So far our accuracy is just under 50%. Not bad. We can improve by first refactor
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>1.877445</td>
@@ -2163,26 +2149,24 @@ So far our accuracy is just under 50%. Not bad. We can improve by first refactor
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We have actually just created a Recurrent Nuearal Net.</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We have actually just created a Recurrent Nuearal Net. </p>
 <p>Reminder - Hidden State represents the activations that are occurring inside the neural net.</p>
 <h3 id="maintaining-the-hidden-state">Maintaining the Hidden State</h3>
-</div>
-</div>
 <p>we can do this by storing the hidden state and updating it. <code>detach</code> throws away the gradient history, also known as <em>truncated back propagation</em>.</p>
 <h3 id="look-into-this">look into this!!</h3>
-<p></div>
-</div></p>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">LMModel3</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_sz</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">):</span>
@@ -2203,39 +2187,35 @@ We have actually just created a Recurrent Nuearal Net.</p>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span><span class="o">//</span><span class="n">bs</span>
 <span class="n">m</span><span class="p">,</span><span class="n">bs</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>(328, 64, 21031)</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">def</span> <span class="nf">group_chunks</span><span class="p">(</span><span class="n">ds</span><span class="p">,</span> <span class="n">bds</span><span class="p">):</span>
     <span class="n">m</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ds</span><span class="p">)</span><span class="o">//</span><span class="n">bs</span>
@@ -2245,12 +2225,12 @@ We have actually just created a Recurrent Nuearal Net.</p>
 </code></pre></div>
 
 
-</div>
 
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">cut</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">seqs</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.8</span><span class="p">)</span>
 <span class="n">dls</span> <span class="o">=</span> <span class="n">DataLoaders</span><span class="o">.</span><span class="n">from_dsets</span><span class="p">(</span>
@@ -2260,19 +2240,20 @@ We have actually just created a Recurrent Nuearal Net.</p>
 </code></pre></div>
 
 
-</div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
-<h3 id="callbacks">Callbacks</h3>
-<p><code>ModelResetter</code> is a fastai callback that resets the model at each training/validation step.
 </div>
-</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="callbacks">Callbacks</h3>
+<p><code>ModelResetter</code> is a fastai callback that resets the model at each training/validation step.</p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">LMModel3</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">64</span><span class="p">),</span> <span class="n">loss_func</span><span class="o">=</span><span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">,</span>
                 <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">cbs</span><span class="o">=</span><span class="n">ModelResetter</span><span class="p">)</span>
@@ -2280,17 +2261,14 @@ We have actually just created a Recurrent Nuearal Net.</p>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -2299,7 +2277,7 @@ We have actually just created a Recurrent Nuearal Net.</p>
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>1.720635</td>
@@ -2373,24 +2351,22 @@ We have actually just created a Recurrent Nuearal Net.</p>
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-This RNN keeps the state from batch to batch and the results show the uplift from this change.</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This RNN keeps the state from batch to batch and the results show the uplift from this change. </p>
 <p>By only predicting every 4th word, we are throwing away signal, which seems wastful. By moving the output stage inside the loop (ie after every hidden state was created we make a prediction) it means we can predict the next word after every single word, rather than every 3 words. </p>
-<p>To do this we have to change our data so that the dependent variable has each of the three next words after each of out three input words. 
+<p>To do this we have to change our data so that the dependent variable has each of the three next words after each of out three input words. </p>
 </div>
-</div></p>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">sl</span> <span class="o">=</span> <span class="mi">16</span> <span class="c1"># sequence length</span>
 
@@ -2405,56 +2381,50 @@ This RNN keeps the state from batch to batch and the results show the uplift fro
 </code></pre></div>
 
 
-</div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-We can see from the first two items in <code>seqs</code> that they are the same length but the second list is offset by 1
 </div>
-</div></p>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can see from the first two items in <code>seqs</code> that they are the same length but the second list is offset by 1</p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="p">[</span><span class="n">L</span><span class="p">(</span><span class="n">vocab</span><span class="p">[</span><span class="n">o</span><span class="p">]</span> <span class="k">for</span> <span class="n">o</span> <span class="ow">in</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">seqs</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>[(#16) [&#39;one&#39;,&#39;.&#39;,&#39;two&#39;,&#39;.&#39;,&#39;three&#39;,&#39;.&#39;,&#39;four&#39;,&#39;.&#39;,&#39;five&#39;,&#39;.&#39;...],
  (#16) [&#39;.&#39;,&#39;two&#39;,&#39;.&#39;,&#39;three&#39;,&#39;.&#39;,&#39;four&#39;,&#39;.&#39;,&#39;five&#39;,&#39;.&#39;,&#39;six&#39;...]]</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-update the model by creating a list to store outputs, then append to this after every element in the loop
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>update the model by creating a list to store outputs, then append to this after every element in the loop</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-</div>
-</div>
+
 <div class="codehilite"><pre><span></span><code><span class="c1"># Modify the model to output a prediction after every word</span>
 
 <span class="k">class</span> <span class="nc">LMModel4</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
@@ -2477,10 +2447,12 @@ update the model by creating a list to store outputs, then append to this after 
 </code></pre></div>
 
 
-</div>
 
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># flatten targets to fit loss function</span>
 
@@ -2489,11 +2461,12 @@ update the model by creating a list to store outputs, then append to this after 
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">LMModel4</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">64</span><span class="p">),</span> <span class="n">loss_func</span><span class="o">=</span><span class="n">loss_func</span><span class="p">,</span>
                <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">,</span> <span class="n">cbs</span><span class="o">=</span><span class="n">ModelResetter</span><span class="p">)</span>
@@ -2502,17 +2475,14 @@ update the model by creating a list to store outputs, then append to this after 
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -2521,7 +2491,7 @@ update the model by creating a list to store outputs, then append to this after 
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>3.212160</td>
@@ -2630,25 +2600,23 @@ update the model by creating a list to store outputs, then append to this after 
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="multilayer-rnn">Multilayer RNN</h2>
 <p>Our model is deep but every hidden to hidden layer uses the same weight matrix which means it isn't that deep at all. It is using the same weight matrix every time, so not very sophisticated. </p>
 <p>Let's refactor again to pass the activations of our current net into a second recurrent neaural network. This is called a stacked or multilayered RNN.</p>
+<p>Using PyTorch's <code>nn.RNN</code> module lets us define the number of layers (<code>n_layers</code>). We can also remove the loop and just call <code>self.rnn</code></p>
 </div>
 </div>
-<p>Using PyTorch's <code>nn.RNN</code> module lets us define the number of layers (<code>n_layers</code>). We can also remove the loop and just call <code>self.rnn</code>
 </div>
-</div></p>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">LMModel5</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_sz</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">):</span>
@@ -2666,11 +2634,12 @@ update the model by creating a list to store outputs, then append to this after 
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># using 2 layers</span>
 
@@ -2681,17 +2650,14 @@ update the model by creating a list to store outputs, then append to this after 
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -2700,7 +2666,7 @@ update the model by creating a list to store outputs, then append to this after 
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>3.054249</td>
@@ -2809,35 +2775,33 @@ update the model by creating a list to store outputs, then append to this after 
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Our results are worse!</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Our results are worse! </p>
 <p><strong>Why?</strong>
 Deep models are hard to train. This can be due to exploding or disappearing activiations. This basically means that our results either become very very large or very very small. This causes an explosion or vanishing of a number and can be computationally intensive or the accuracy of the floating point numbers gets lost. </p>
 <p>We can avoid this in a number of ways... </p>
-</div>
-</div>
 <h3 id="lstm">LSTM</h3>
-<p>Replacing the matrix multiplication in an RNN with this architecture, basically means the model is able to make decisions about how much of an update to do each time. This helps the model to avoid updating too much or too little.
+<p>Replacing the matrix multiplication in an RNN with this architecture, basically means the model is able to make decisions about how much of an update to do each time. This helps the model to avoid updating too much or too little.</p>
 </div>
-</div></p>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="training-a-language-model-using-lstms">Training a Language Model Using LSTMs</h3>
-<p>This is the same network but the RNN is replaced with an LSTM. We need to increase the number of layers in our hidden state for this to work because the LSTM has more layers.
+<p>This is the same network but the RNN is replaced with an LSTM. We need to increase the number of layers in our hidden state for this to work because the LSTM has more layers.</p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="c1"># Training with LSTM</span>
 
@@ -2858,11 +2822,12 @@ Deep models are hard to train. This can be due to exploding or disappearing acti
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">LMModel6</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> 
                 <span class="n">loss_func</span><span class="o">=</span><span class="n">CrossEntropyLossFlat</span><span class="p">(),</span> 
@@ -2871,17 +2836,14 @@ Deep models are hard to train. This can be due to exploding or disappearing acti
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -2890,7 +2852,7 @@ Deep models are hard to train. This can be due to exploding or disappearing acti
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>3.040422</td>
@@ -2999,25 +2961,21 @@ Deep models are hard to train. This can be due to exploding or disappearing acti
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Results are much much better!
 </div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Results are much much better!</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="regularising-an-lstm">Regularising an LSTM</h2>
-</div>
-</div>
 <h3 id="dropout">Dropout</h3>
 <ul>
 <li>Dropout improves neaural net training by deleting random activations. This reduces the computation but also prevents the model from overfitting. </li>
@@ -3026,11 +2984,13 @@ Results are much much better!
 <p>class <code>Droput</code>
 - <code>p</code> the probability that an activation gets deleted
 - only perform dropout in training
-- <code>mask</code> the mask a tensor with random zeros with probability (<code>p</code>) and ones with probability (<code>p</code>-1) 
+- <code>mask</code> the mask a tensor with random zeros with probability (<code>p</code>) and ones with probability (<code>p</code>-1) </p>
 </div>
-</div></p>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">Dropout</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="n">p</span>
@@ -3041,44 +3001,42 @@ Results are much much better!
 </code></pre></div>
 
 
-</div>
 
 </div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h4 id="a-simple-example">A simple example</h4>
-<p></div>
-</div></p>
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 
-<div class="codehilite"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="o">.</span><span class="mi">3</span>
+
+<div class="codehilite"><pre><span></span><code><span class="n">p</span> <span class="o">=</span> <span class="mf">.3</span>
 
 <span class="n">B</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span><span class="o">.</span><span class="n">bernoulli</span><span class="p">(</span><span class="mi">1</span><span class="o">-</span><span class="n">p</span><span class="p">)</span>
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">B</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>tensor([[0., 1., 1.],
@@ -3086,23 +3044,21 @@ Results are much much better!
         [0., 0., 0.]])</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-In this example, 1-<code>p</code> adds 3 ones in the 3*3 matrix. Basically the probability of drawing a one here is 3/9 or 0.3. As we saw earlier with one hot encodings, this matrix will act as a lookup when you multiply it by another matrix.</p>
-<p>In context of what we are doing, by performing this multiplication you are randomly prunning elements of the other matrix
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In this example, 1-<code>p</code> adds 3 ones in the 3*3 matrix. Basically the probability of drawing a one here is 3/9 or 0.3. As we saw earlier with one hot encodings, this matrix will act as a lookup when you multiply it by another matrix. </p>
+<p>In context of what we are doing, by performing this multiplication you are randomly prunning elements of the other matrix</p>
 </div>
-</div></p>
 </div>
-<div class="cell border-box-sizing code_cell rendered"></div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">A</span> <span class="o">=</span> <span class="n">tensor</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">],</span>
             <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">],</span>
@@ -3110,24 +3066,22 @@ In this example, 1-<code>p</code> adds 3 ones in the 3*3 matrix. Basically the p
 </code></pre></div>
 
 
-</div>
 
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">A</span><span class="o">*</span><span class="n">B</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_text output_subarea output_execute_result">
 <pre>
 <code>tensor([[0., 2., 3.],
@@ -3135,39 +3089,37 @@ In this example, 1-<code>p</code> adds 3 ones in the 3*3 matrix. Basically the p
         [0., 0., 0.]])</code>
 </pre>
 </div>
-
-</div>
-
 </div>
 </div>
-
-<div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Corresponding elements of <code>A</code> are returned only if there is a 1 in the same position in matrix <code>B</code>
 </div>
-</div></p>
 </div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Corresponding elements of <code>A</code> are returned only if there is a 1 in the same position in matrix <code>B</code></p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="ar-and-tar-regularisation">AR and TAR regularisation</h3>
-</div>
-</div>
 <p>AR (activation regularisation) and TAR (temporal activation regularisation) are very similar to weight decay but are applied to activations instead of weights. </p>
-<p>TAR is linked to the fact that we are trying to predict a sequence of tokens. So we take the difference of the activations between time steps. It limits the changes in activations between time steps. 
+<p>TAR is linked to the fact that we are trying to predict a sequence of tokens. So we take the difference of the activations between time steps. It limits the changes in activations between time steps. </p>
 </div>
-</div></p>
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1"></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="weight-tying">Weight Tying</h3>
-<p>Sets the hidden to output weights equal to the input to hidden weights. The idea is that converting words to activations and activations to words should conceptually be the same thing since the language is consistent, and the computation is consistent so why would you need to change the weights? 
+<p>Sets the hidden to output weights equal to the input to hidden weights. The idea is that converting words to activations and activations to words should conceptually be the same thing since the language is consistent, and the computation is consistent so why would you need to change the weights? </p>
 </div>
-</div></p>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="k">class</span> <span class="nc">LMModel7</span><span class="p">(</span><span class="n">Module</span><span class="p">):</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_sz</span><span class="p">,</span> <span class="n">n_hidden</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
@@ -3189,11 +3141,12 @@ Corresponding elements of <code>A</code> are returned only if there is a 1 in th
 </code></pre></div>
 
 
-</div>
 
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">Learner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">LMModel7</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
                 <span class="n">loss_func</span><span class="o">=</span><span class="n">CrossEntropyLossFlat</span><span class="p">(),</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">,</span>
@@ -3201,41 +3154,36 @@ Corresponding elements of <code>A</code> are returned only if there is a 1 in th
 </code></pre></div>
 
 
-</div>
 
 </div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-This is the same as above but <code>TextLearner</code> adds the additions peices for you</p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This is the same as above but <code>TextLearner</code> adds the additions peices for you</p>
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span> <span class="o">=</span> <span class="n">TextLearner</span><span class="p">(</span><span class="n">dls</span><span class="p">,</span> <span class="n">LMModel7</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">vocab</span><span class="p">),</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">),</span>
                     <span class="n">loss_func</span><span class="o">=</span><span class="n">CrossEntropyLossFlat</span><span class="p">(),</span> <span class="n">metrics</span><span class="o">=</span><span class="n">accuracy</span><span class="p">)</span>
 </code></pre></div>
 
-
 </div>
 </div>
-
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
+
 
 <div class="codehilite"><pre><span></span><code><span class="n">learn</span><span class="o">.</span><span class="n">fit_one_cycle</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mf">1e-2</span><span class="p">,</span> <span class="n">wd</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
 </code></pre></div>
 
 
+
 </div>
-
-<div class="output_wrapper" markdown="1">
-<div class="output" markdown="1">
-
-
-<div class="output_area" markdown="1">
-
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area">
 <div class="output_html rendered_html output_subarea ">
 <table border="1" class="dataframe">
-  <thead>
+<thead>
     <tr style="text-align: left;">
       <th>epoch</th>
       <th>train_loss</th>
@@ -3244,7 +3192,7 @@ This is the same as above but <code>TextLearner</code> adds the additions peices
       <th>time</th>
     </tr>
   </thead>
-  <tbody>
+<tbody>
     <tr>
       <td>0</td>
       <td>0.030605</td>
@@ -3353,101 +3301,96 @@ This is the same as above but <code>TextLearner</code> adds the additions peices
   </tbody>
 </table>
 </div>
-
-</div>
-
 </div>
 </div>
-
+</div>
+</div>
 <div class="cell border-box-sizing text_cell rendered">
-<p><div class="inner_cell" markdown="1">
-<div class="text_cell_render border-box-sizing rendered_html" markdown="1">
-Almost 85% accuracy! 
-</div>
-</div></p>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Almost 85% accuracy! </p>
 </div>
 </div>
-                
-              
-              
-                
+</div>
 
 
-              
-            </article>
-          </div>
+
+
+
+                
+              </article>
+            </div>
+          
+          
         </div>
+        
       </main>
       
-        
-<footer class="md-footer">
+        <footer class="md-footer">
   
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+    
+    <nav class="md-footer__inner md-grid" aria-label="Footer" >
+      
         
-          <a href="../lesson%2007/" title="Lesson 07" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-footer-nav__button md-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+        <a href="../lesson%2007/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Lesson 07" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Lesson 07
             </div>
-            <div class="md-footer-nav__title">
-              <div class="md-ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Lesson 07
-              </div>
-            </div>
-          </a>
-        
-        
-      </nav>
-    </div>
+          </div>
+        </a>
+      
+      
+    </nav>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-          <div class="md-footer-copyright__highlight">
-            Copyright 2020 Devin de Araujo
-          </div>
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-      </div>
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright 2020 Devin de Araujo
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
       
-  <div class="md-footer-social">
+        <div class="md-social">
+  
+    
     
       
       
-        
-        
-      
-      <a href="https://www.linkedin.com/in/devindearaujo/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-footer-social__link">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
-      </a>
     
-  </div>
-
+    <a href="https://www.linkedin.com/in/devindearaujo/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.2.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2022 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg>
+    </a>
+  
+</div>
+      
     </div>
   </div>
 </footer>
       
     </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
     
-      <script src="../../assets/javascripts/vendor.92ffa368.min.js"></script>
-      <script src="../../assets/javascripts/bundle.5123e3d4.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
-      
-      <script>
-        app = initialize({
-          base: "../..",
-          features: [],
-          search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.a68abb33.min.js"
-          }, typeof search !== "undefined" && search)
-        })
-      </script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.5bf1dace.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.37e9125f.min.js"></script>
       
     
   </body>
