@@ -1,0 +1,35 @@
+.md-sidebar--secondary {
+    display: none;
+  }
+
+table.dataframe {
+    margin: 5px 5px 5px 5px;
+    overflow-x: auto;
+    font-size: smaller;
+}
+
+.output_wrapper {
+    overflow-x: auto;
+}
+
+
+/* Input cells #3333aa11 */
+.input code, .input pre {
+    background-color: #EBEDEF;
+    border-radius: 5px;
+    /*border: 1px solid #e8e8e8;*/
+}
+
+/* Output pre cells #ececec27 */
+.output pre {
+    background-color: #ffffff;
+    padding: 10px;
+}
+
+/* Output code cells #ececec80 */
+.output code {
+    background-color: #ececec80;
+    padding: 10px;
+    border-radius: 5px;
+    /*border: 1px solid #e8e8e8;*/
+}
