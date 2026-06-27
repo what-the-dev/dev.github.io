@@ -1,3 +1,0 @@
-# About
-
-### Graph Representation Learning

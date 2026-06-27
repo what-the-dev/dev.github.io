@@ -1,0 +1,51 @@
+baseURL = "https://what-the-dev.github.io/dev.github.io/"
+locale = "en-us"
+title = "Devin de Araujo"
+theme = "PaperMod"
+paginate = 10
+
+[params]
+  author = "Devin de Araujo"
+  description = "ML engineering & data science — paper implementations, notes, and ideas."
+  defaultTheme = "dark"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowBreadCrumbs = false
+  ShowCodeCopyButtons = true
+  ShowShareButtons = false
+  ShowToc = true
+  TocOpen = false
+
+  [params.homeInfoParams]
+    Title = "Hi, I'm Devin"
+    Content = "ML engineer writing about paper implementations, model internals, and data science. Expect code."
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/what-the-dev"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/devindearaujo/"
+
+[menu]
+  [[menu.main]]
+    name = "Blog"
+    url = "/blog/"
+    weight = 1
+
+  [[menu.main]]
+    name = "Notes"
+    url = "/notes/"
+    weight = 2
+
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 3
+
+[markup]
+  [markup.highlight]
+    style = "dracula"
+    lineNos = false
+    noClasses = false
